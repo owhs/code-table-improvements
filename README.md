@@ -1,12 +1,13 @@
 # Code table improvements
 
-New lower bounds for entries in A. E. Brouwer's tables of binary constant-weight, ternary, mixed binary/ternary and 5-ary codes,
+New lower bounds for entries in A. E. Brouwer's tables of binary, binary constant-weight, ternary, mixed binary/ternary and 5-ary codes,
 a proposed table of spectral-signature codes, and the search scripts. Oscar Sanchez (GitHub: owhs), October 2026, with Claude (Anthropic).
 
 Each result folder has the codes as plain text and a checker that uses only the Python standard library.
 
 | folder | result | table value |
 |---|---|---|
+| `binary_A18_4/` | A(18,4) = A(17,3) >= 6144 and A(17,4) = A(16,3) >= 3072 (binary table) | 5632, 2816 |
 | `constant_weight_A31_10_12_1015/` | A(31,10,12) >= 1015 | 961 |
 | `constant_weight_A31_10_12/` | A(31,10,12) >= 961 (earlier code, superseded by 1015; on Brouwer's page since 2026-10-14) | 930 before |
 | `constant_weight_A32_10_10/` | A(32,10,10) >= 558 | 500 |
