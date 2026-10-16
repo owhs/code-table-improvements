@@ -47,5 +47,6 @@ These are practical differences, not theoretical advances.
 ## Limits
 - The method is only as good as its groups. In 15-minute single-core runs it did not reach several published values,
   for example A_5(9,5) (625 against 857) and A_5(9,6) (125 against 157).
-- For A_5(7,4) our best is 254, below the 257 of Laaksonen and Ostergard (2019).
+- For A_5(7,4) direct search reached 254; the 257 of Laaksonen and Ostergard (2019) follows from A_5(8,5) >= 257 by
+  deleting a coordinate.
 - Literature after the table sources was searched by web search only.

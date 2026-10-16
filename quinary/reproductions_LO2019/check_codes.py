@@ -1,11 +1,11 @@
-"""Check the two 5-ary codes in this folder (standard library only): distinct words, alphabet 0-4, length, minimum distance.
+"""Check the three 5-ary codes in this folder (standard library only): distinct words, alphabet 0-4, length, minimum distance.
     python check_codes.py
 """
 import itertools
 import os
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-CODES = (("code_A5_8_5_257.txt", 8, 5, 257), ("code_A5_7_5_57.txt", 7, 5, 57))
+CODES = (("code_A5_8_5_257.txt", 8, 5, 257), ("code_A5_7_4_257.txt", 7, 4, 257), ("code_A5_7_5_57.txt", 7, 5, 57))
 
 ok_all = True
 for name, n, d, size in CODES:
