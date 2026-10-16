@@ -7,6 +7,18 @@
 <meta name="description" content="Tables of the sizes of binary constant weight codes whose words have pairwise different power spectra. Also actual codes are given.">
 </head>
 <body>
+<!-- nav -->
+<a name="top"></a>
+<div style="font-size:90%;border-bottom:1px solid #999;padding:4px 0 6px 0;margin-bottom:10px">
+<b>tables</b> &middot; <a href="index.html">full page with experiments</a> &middot;
+<a href="https://github.com/owhs/code-table-improvements/blob/main/spectral_signature/bispectral/README.md">bispectral note</a> &middot;
+<a href="https://github.com/owhs/code-table-improvements/blob/main/spectral_signature/related_work.md">related work</a> &middot;
+<a href="https://github.com/owhs/code-table-improvements/tree/main/spectral_signature/codes">code files</a> &middot;
+<a href="https://github.com/owhs/code-table-improvements/blob/main/spectral_signature/check_codes.py">checker</a> &middot;
+<a href="https://github.com/owhs/code-table-improvements/blob/main/spectral_signature/README.md">README</a> &middot;
+<a href="https://github.com/owhs/code-table-improvements">repository</a>
+</div>
+
 <h1>Bounds for spectral-signature codes</h1>
 A word <i>x</i> of length <i>n</i> and weight <i>w</i> has the power signature
 P<sub><i>x</i></sub>(<i>k</i>) = |&sum;<sub><i>j</i></sub> <i>x</i><sub><i>j</i></sub> exp(-2&pi;<i>ijk</i>/<i>n</i>)|<sup>2</sup>,
@@ -21,10 +33,10 @@ The tables below give lower (and upper) bounds for this function for small param
 A lower bound is demonstrated by giving an explicit code.
 Contact: GitHub user <a href="https://github.com/owhs">owhs</a>.
 <p>
-Jump to <a href="#sig">the number of signatures</a>, <a href="#t0.05">&theta;=0.05</a>, <a href="#t0.10">&theta;=0.10</a>, <a href="#t0.20">&theta;=0.20</a>, <a href="#t0.40">&theta;=0.40</a>.
+Jump to <a href="#sources">sources</a>, <a href="#sig">the number of signatures</a>, <a href="#t0.05">&theta;=0.05</a>, <a href="#t0.10">&theta;=0.10</a>, <a href="#t0.20">&theta;=0.20</a>, <a href="#t0.40">&theta;=0.40</a>.
 <p>
 
-<h1>Sources</h1>
+<h1><a name="sources">Sources</a></h1>
 The bounds on <i>S</i>(<i>n</i>,<i>w</i>,&theta;) were computed here; no earlier table of them was found.
 The numbers of signatures <i>c</i>(<i>n</i>,<i>w</i>) for <i>n</i> &le; 24 can also be derived from the enumeration of Z-related
 (homometric) sets by F. Jedrzejewski &amp; T. Johnson, <i>The structure of Z-related sets</i>, arXiv:1304.6608 (2013), together with the
@@ -34,8 +46,8 @@ as a 0/1 matrix); an entry <i>a</i>-<i>b</i> means <i>a</i> &le; <i>S</i> &le; <
 <blockquote>
 San: Oscar Sanchez,
 <br>search harness built with Claude (Anthropic), 2026-10-14.
-<a href="README.md">(README)</a> <a href="check_codes.py">(checker)</a> <a href="codes.json">(codes)</a>
-<a href="index.html">(longer page with decoding experiments)</a>
+<a href="https://github.com/owhs/code-table-improvements/blob/main/spectral_signature/README.md">(README)</a> <a href="check_codes.py">(checker)</a> <a href="codes.json">(codes)</a>
+<a href="index.html">(longer page with decoding experiments)</a> <a href="https://github.com/owhs/code-table-improvements/blob/main/spectral_signature/bispectral/README.md">(bispectral comparison)</a>
 </blockquote>
 <p>
 The ordinary constant weight codes <i>A</i>(<i>n</i>,<i>d</i>,<i>w</i>) are tabulated in
@@ -63,9 +75,10 @@ A. Rosenblatt &amp; P. D. Seymour,
 For <i>n</i> = 16, <i>w</i> = 6, 12 words and Gaussian noise 0.2 on the 0/1 positions, a code of maximal minimum spectral distance has symbol
 error rate 0.009, against 0.117 for greedy Hamming codes of the same size (for <i>n</i> = 18, <i>w</i> = 6, 16 words: 0.006 against 0.113).
 At noise 0.5 the gain is small (0.474 against 0.666 for <i>n</i> = 16). The distance used is the L1 distance between noise-free signatures.
-No theorem is claimed; the literature was searched but not read in full (<a href="related_work.md">related_work.md</a>).
+No theorem is claimed; the literature was searched but not read in full (<a href="https://github.com/owhs/code-table-improvements/blob/main/spectral_signature/related_work.md">related_work.md</a>).
 <p>
 
+<p style="font-size:90%"><a href="#top">top</a> &middot; <a href="#sig">c(n,w)</a> &middot; <a href="#t0.05">&theta;=0.05</a> &middot; <a href="#t0.10">&theta;=0.10</a> &middot; <a href="#t0.20">&theta;=0.20</a> &middot; <a href="#t0.40">&theta;=0.40</a></p>
 <hr>
 <h1><a name="sig">The number of signatures <i>c</i>(<i>n</i>,<i>w</i>)</a></h1>
 <i>S</i>(<i>n</i>,<i>w</i>,&theta;) &le; <i>c</i>(<i>n</i>,<i>w</i>), with equality if and only if &theta; is at most the smallest distance between two classes.
@@ -191,6 +204,7 @@ the first difference is <i>w</i> = 4, <i>n</i> = 8, where {0,1,2,5} and {0,1,3,4
 
 </table>
 <p>
+<p style="font-size:90%"><a href="#top">top</a> &middot; <a href="#sig">c(n,w)</a> &middot; <a href="#t0.05">&theta;=0.05</a> &middot; <a href="#t0.10">&theta;=0.10</a> &middot; <a href="#t0.20">&theta;=0.20</a> &middot; <a href="#t0.40">&theta;=0.40</a></p>
 <hr>
 <h1><a name="t0.05">Bounds on <i>S</i>(<i>n</i>,<i>w</i>,0.05)</a></h1>
 <table border="1">
@@ -268,6 +282,7 @@ the first difference is <i>w</i> = 4, <i>n</i> = 8, where {0,1,2,5} and {0,1,3,4
 
 </table>
 <p>
+<p style="font-size:90%"><a href="#top">top</a> &middot; <a href="#sig">c(n,w)</a> &middot; <a href="#t0.05">&theta;=0.05</a> &middot; <a href="#t0.10">&theta;=0.10</a> &middot; <a href="#t0.20">&theta;=0.20</a> &middot; <a href="#t0.40">&theta;=0.40</a></p>
 <hr>
 <h1><a name="t0.10">Bounds on <i>S</i>(<i>n</i>,<i>w</i>,0.10)</a></h1>
 <table border="1">
@@ -345,6 +360,7 @@ the first difference is <i>w</i> = 4, <i>n</i> = 8, where {0,1,2,5} and {0,1,3,4
 
 </table>
 <p>
+<p style="font-size:90%"><a href="#top">top</a> &middot; <a href="#sig">c(n,w)</a> &middot; <a href="#t0.05">&theta;=0.05</a> &middot; <a href="#t0.10">&theta;=0.10</a> &middot; <a href="#t0.20">&theta;=0.20</a> &middot; <a href="#t0.40">&theta;=0.40</a></p>
 <hr>
 <h1><a name="t0.20">Bounds on <i>S</i>(<i>n</i>,<i>w</i>,0.20)</a></h1>
 <table border="1">
@@ -422,6 +438,7 @@ the first difference is <i>w</i> = 4, <i>n</i> = 8, where {0,1,2,5} and {0,1,3,4
 
 </table>
 <p>
+<p style="font-size:90%"><a href="#top">top</a> &middot; <a href="#sig">c(n,w)</a> &middot; <a href="#t0.05">&theta;=0.05</a> &middot; <a href="#t0.10">&theta;=0.10</a> &middot; <a href="#t0.20">&theta;=0.20</a> &middot; <a href="#t0.40">&theta;=0.40</a></p>
 <hr>
 <h1><a name="t0.40">Bounds on <i>S</i>(<i>n</i>,<i>w</i>,0.40)</a></h1>
 <table border="1">
@@ -499,6 +516,7 @@ the first difference is <i>w</i> = 4, <i>n</i> = 8, where {0,1,2,5} and {0,1,3,4
 
 </table>
 <p>
+<p style="font-size:90%"><a href="#top">top</a> &middot; <a href="#sig">c(n,w)</a> &middot; <a href="#t0.05">&theta;=0.05</a> &middot; <a href="#t0.10">&theta;=0.10</a> &middot; <a href="#t0.20">&theta;=0.20</a> &middot; <a href="#t0.40">&theta;=0.40</a></p>
 <hr>
 </body>
 </html>

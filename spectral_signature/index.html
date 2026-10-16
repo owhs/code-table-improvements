@@ -5,11 +5,34 @@
  <TITLE>Spectral-signature codes: codes for intensity-only receivers</TITLE>
 </HEAD>
 <BODY>
-<H2>Spectral-signature codes: tables of bounds</H2>
-<P>Computed 2026-10-14 (exact where marked). Files: <A HREF="README.md">README</A>, <A HREF="codes.json">codes.json</A>, <A HREF="table_classes.csv">table_classes.csv</A>,
-<A HREF="table_maxcode.csv">table_maxcode.csv</A>, <A HREF="check_codes.py">check_codes.py</A>, <A HREF="related_work.md">related work</A>.</P>
+<!-- nav -->
+<a name="top"></a>
+<div style="font-size:90%;border-bottom:1px solid #999;padding:4px 0 6px 0;margin-bottom:10px">
+<a href="brouwer.html">tables (Brouwer style)</a> &middot; <b>full page</b> &middot;
+<a href="https://github.com/owhs/code-table-improvements/blob/main/spectral_signature/bispectral/README.md">bispectral note</a> &middot;
+<a href="https://github.com/owhs/code-table-improvements/blob/main/spectral_signature/related_work.md">related work</a> &middot;
+<a href="https://github.com/owhs/code-table-improvements/tree/main/spectral_signature/codes">code files</a> &middot;
+<a href="https://github.com/owhs/code-table-improvements/blob/main/spectral_signature/check_codes.py">checker</a> &middot;
+<a href="https://github.com/owhs/code-table-improvements/blob/main/spectral_signature/README.md">README</a> &middot;
+<a href="https://github.com/owhs/code-table-improvements">repository</a>
+</div>
 
-<H3>1. The problem</H3>
+<H2>Spectral-signature codes: tables of bounds</H2>
+<P>Computed 2026-10-14 (exact where marked). Files: <A href="https://github.com/owhs/code-table-improvements/blob/main/spectral_signature/README.md">README</A>, <A HREF="codes.json">codes.json</A>, <A HREF="table_classes.csv">table_classes.csv</A>,
+<A HREF="table_maxcode.csv">table_maxcode.csv</A>, <A HREF="check_codes.py">check_codes.py</A>, <A href="https://github.com/owhs/code-table-improvements/blob/main/spectral_signature/related_work.md">related work</A>.</P>
+
+<P><B>Contents</B></P>
+<OL>
+<LI><A HREF="#s1">The problem</A></LI>
+<LI><A HREF="#s2">Table of c(n,w): the number of distinct power signatures (weight w, length n)</A></LI>
+<LI><A HREF="#s3">Tables of S(n,w,&theta;): the largest spectral code</A> (<A HREF="#t0.05">&theta;=0.05</A>, <A HREF="#t0.10">0.10</A>, <A HREF="#t0.20">0.20</A>, <A HREF="#t0.40">0.40</A>)</LI>
+<LI><A HREF="#s4">Table of &delta;(n,w): separation of the full alphabet</A></LI>
+<LI><A HREF="#s5">Matrices</A></LI>
+<LI><A HREF="#s6">Use: an intensity-only receiver in additive noise</A></LI>
+<LI><A HREF="#s7">Link to hyperdimensional computing (HDC) and optical orthogonal codes</A></LI>
+<LI><A HREF="#s8">Notes</A></LI>
+</OL>
+<H3><A NAME="s1">1. The problem</A></H3>
 <P>A word x is a binary vector of length n and weight w. A receiver that can only measure intensities sees the power signature
 P<sub>x</sub>(k) = |&sum;<sub>j</sub> x<sub>j</sub> e<sup>-2&pi;ijk/n</sup>|<sup>2</sup>, k = 1..&lfloor;n/2&rfloor;
 (equivalently the cyclic autocorrelation, i.e. the multiset of cyclic differences, of the support). Cyclic shifts, reflections and homometric (Z-related)
@@ -19,7 +42,8 @@ A <I>spectral code</I> C(n,w,&theta;) is a set of weight-w words with pairwise d
 S(n,w,&theta;) &le; c(n,w), the number of distinct signatures; equality holds exactly for &theta; &le; &delta;(n,w), the smallest distance between two classes.
 The ordinary constant-weight code problem A(n,d,w) uses Hamming distance and counts shifts as different words; here all shifts of a word have the same signature, so a shift-closed code has S = 1.</P>
 
-<H3>2. Table of c(n,w): the number of distinct power signatures (weight w, length n)</H3>
+<P style="font-size:90%"><A HREF="#top">top</A></P>
+<H3><A NAME="s2">2. Table of c(n,w): the number of distinct power signatures (weight w, length n)</A></H3>
 <P>Values with * are smaller than the number of bracelets (binary necklaces up to rotation and reflection) because of homometric merging; hover for the count.
 c(n,w) = c(n,n-w); only w &le; n/2 is shown. Exact integer autocorrelation keys. w = 2: n/2 classes (floor).</P>
 <TABLE BORDER="1"><TR><TD>n \ w</TD><TD> 2 </TD><TD> 3 </TD><TD> 4 </TD><TD> 5 </TD><TD> 6 </TD><TD> 7 </TD><TD> 8 </TD><TD> 9 </TD><TD> 10 </TD><TD> 11 </TD><TD> 12 </TD><TD> 13 </TD><TD> 14 </TD><TD> 15 </TD></TR>
@@ -52,10 +76,11 @@ c(n,w) = c(n,n-w); only w &le; n/2 is shown. Exact integer autocorrelation keys.
 <TR><TD>30</TD><TD>15</TD><TD>75</TD><TD>511</TD><TD><span title="2421 bracelets, 59 merged by homometry">2362*</span></TD><TD><span title="10133 bracelets, 432 merged by homometry">9701*</span></TD><TD><span title="34112 bracelets, 1708 merged by homometry">32404*</span></TD><TD><span title="98254 bracelets, 5006 merged by homometry">93248*</span></TD><TD><span title="238957 bracelets, 25577 merged by homometry">213380*</span></TD><TD><span title="502303 bracelets, 46627 merged by homometry">455676*</span></TD><TD><span title="911456 bracelets, 96456 merged by homometry">815000*</span></TD><TD><span title="1444147 bracelets, 200795 merged by homometry">1243352*</span></TD><TD><span title="1997499 bracelets, 250425 merged by homometry">1747074*</span></TD><TD><span title="2427036 bracelets, 254419 merged by homometry">2172617*</span></TD><TD><span title="2587018 bracelets, 1422193 merged by homometry">1164825*</span></TD></TR>
 </TABLE>
 
-<H3>3. Tables of S(n,w,&theta;): the largest spectral code</H3>
+<P style="font-size:90%"><A HREF="#top">top</A></P>
+<H3><A NAME="s3">3. Tables of S(n,w,&theta;): the largest spectral code</A></H3>
 <P>Entries are exact (proven by integer programming) unless written lb-ub. Bold = the code is smaller than the full alphabet c(n,w) (the threshold bites).
 Each entry links to a file with one codeword per line (a 0/1 matrix). &mdash; = more than 3500 classes, not computed.</P>
-<H4>&theta; = 0.05</H4><TABLE BORDER="1"><TR><TD>n \ w</TD><TD> 3 </TD><TD> 4 </TD><TD> 5 </TD><TD> 6 </TD><TD> 7 </TD><TD> 8 </TD><TD> 9 </TD><TD> 10 </TD></TR>
+<H4><A NAME="t0.05">&theta; = 0.05</A></H4><TABLE BORDER="1"><TR><TD>n \ w</TD><TD> 3 </TD><TD> 4 </TD><TD> 5 </TD><TD> 6 </TD><TD> 7 </TD><TD> 8 </TD><TD> 9 </TD><TD> 10 </TD></TR>
 <TR><TD>6</TD><TD><A HREF="codes/n6_w3_d0.05.txt">3</A></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD></TR>
 <TR><TD>7</TD><TD><A HREF="codes/n7_w3_d0.05.txt">4</A></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD></TR>
 <TR><TD>8</TD><TD><A HREF="codes/n8_w3_d0.05.txt">5</A></TD><TD><A HREF="codes/n8_w4_d0.05.txt">7</A></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD></TR>
@@ -71,7 +96,7 @@ Each entry links to a file with one codeword per line (a 0/1 matrix). &mdash; = 
 <TR><TD>18</TD><TD><A HREF="codes/n18_w3_d0.05.txt">27</A></TD><TD><A HREF="codes/n18_w4_d0.05.txt">104</A></TD><TD><A HREF="codes/n18_w5_d0.05.txt">237</A></TD><TD><A HREF="codes/n18_w6_d0.05.txt">493</A></TD><TD><A HREF="codes/n18_w7_d0.05.txt">762</A></TD><TD><A HREF="codes/n18_w8_d0.05.txt">1121</A></TD><TD><A HREF="codes/n18_w9_d0.05.txt">701</A></TD><TD></TD></TR>
 <TR><TD>19</TD><TD><A HREF="codes/n19_w3_d0.05.txt">30</A></TD><TD><A HREF="codes/n19_w4_d0.05.txt">120</A></TD><TD><A HREF="codes/n19_w5_d0.05.txt">324</A></TD><TD><A HREF="codes/n19_w6_d0.05.txt">735</A></TD><TD><A HREF="codes/n19_w7_d0.05.txt">1311</A></TD><TD><A HREF="codes/n19_w8_d0.05.txt">1962</A></TD><TD><A HREF="codes/n19_w9_d0.05.txt">2338</A></TD><TD></TD></TR>
 <TR><TD>20</TD><TD><A HREF="codes/n20_w3_d0.05.txt">33</A></TD><TD><A HREF="codes/n20_w4_d0.05.txt">143</A></TD><TD><A HREF="codes/n20_w5_d0.05.txt">384</A></TD><TD><A HREF="codes/n20_w6_d0.05.txt">932</A></TD><TD><A HREF="codes/n20_w7_d0.05.txt">1778</A></TD><TD><A HREF="codes/n20_w8_d0.05.txt">2649</A></TD><TD>&mdash;</TD><TD><A HREF="codes/n20_w10_d0.05.txt">2377</A></TD></TR>
-</TABLE><H4>&theta; = 0.10</H4><TABLE BORDER="1"><TR><TD>n \ w</TD><TD> 3 </TD><TD> 4 </TD><TD> 5 </TD><TD> 6 </TD><TD> 7 </TD><TD> 8 </TD><TD> 9 </TD><TD> 10 </TD></TR>
+</TABLE><H4><A NAME="t0.10">&theta; = 0.10</A></H4><TABLE BORDER="1"><TR><TD>n \ w</TD><TD> 3 </TD><TD> 4 </TD><TD> 5 </TD><TD> 6 </TD><TD> 7 </TD><TD> 8 </TD><TD> 9 </TD><TD> 10 </TD></TR>
 <TR><TD>6</TD><TD><A HREF="codes/n6_w3_d0.10.txt">3</A></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD></TR>
 <TR><TD>7</TD><TD><A HREF="codes/n7_w3_d0.10.txt">4</A></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD></TR>
 <TR><TD>8</TD><TD><A HREF="codes/n8_w3_d0.10.txt">5</A></TD><TD><A HREF="codes/n8_w4_d0.10.txt">7</A></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD></TR>
@@ -87,7 +112,7 @@ Each entry links to a file with one codeword per line (a 0/1 matrix). &mdash; = 
 <TR><TD>18</TD><TD><A HREF="codes/n18_w3_d0.10.txt">27</A></TD><TD><A HREF="codes/n18_w4_d0.10.txt">104</A></TD><TD><A HREF="codes/n18_w5_d0.10.txt">237</A></TD><TD><A HREF="codes/n18_w6_d0.10.txt">493</A></TD><TD><A HREF="codes/n18_w7_d0.10.txt">762</A></TD><TD><A HREF="codes/n18_w8_d0.10.txt">1121</A></TD><TD><A HREF="codes/n18_w9_d0.10.txt">701</A></TD><TD></TD></TR>
 <TR><TD>19</TD><TD><A HREF="codes/n19_w3_d0.10.txt">30</A></TD><TD><A HREF="codes/n19_w4_d0.10.txt">120</A></TD><TD><A HREF="codes/n19_w5_d0.10.txt">324</A></TD><TD><A HREF="codes/n19_w6_d0.10.txt">735</A></TD><TD><A HREF="codes/n19_w7_d0.10.txt">1311</A></TD><TD><A HREF="codes/n19_w8_d0.10.txt">1962</A></TD><TD><A HREF="codes/n19_w9_d0.10.txt">2338</A></TD><TD></TD></TR>
 <TR><TD>20</TD><TD><A HREF="codes/n20_w3_d0.10.txt">33</A></TD><TD><A HREF="codes/n20_w4_d0.10.txt">143</A></TD><TD><A HREF="codes/n20_w5_d0.10.txt">384</A></TD><TD><A HREF="codes/n20_w6_d0.10.txt">932</A></TD><TD><A HREF="codes/n20_w7_d0.10.txt">1778</A></TD><TD><A HREF="codes/n20_w8_d0.10.txt">2649</A></TD><TD>&mdash;</TD><TD><A HREF="codes/n20_w10_d0.10.txt">2377</A></TD></TR>
-</TABLE><H4>&theta; = 0.20</H4><TABLE BORDER="1"><TR><TD>n \ w</TD><TD> 3 </TD><TD> 4 </TD><TD> 5 </TD><TD> 6 </TD><TD> 7 </TD><TD> 8 </TD><TD> 9 </TD><TD> 10 </TD></TR>
+</TABLE><H4><A NAME="t0.20">&theta; = 0.20</A></H4><TABLE BORDER="1"><TR><TD>n \ w</TD><TD> 3 </TD><TD> 4 </TD><TD> 5 </TD><TD> 6 </TD><TD> 7 </TD><TD> 8 </TD><TD> 9 </TD><TD> 10 </TD></TR>
 <TR><TD>6</TD><TD><A HREF="codes/n6_w3_d0.20.txt">3</A></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD></TR>
 <TR><TD>7</TD><TD><A HREF="codes/n7_w3_d0.20.txt">4</A></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD></TR>
 <TR><TD>8</TD><TD><A HREF="codes/n8_w3_d0.20.txt">5</A></TD><TD><A HREF="codes/n8_w4_d0.20.txt">7</A></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD></TR>
@@ -103,7 +128,7 @@ Each entry links to a file with one codeword per line (a 0/1 matrix). &mdash; = 
 <TR><TD>18</TD><TD><A HREF="codes/n18_w3_d0.20.txt">27</A></TD><TD><A HREF="codes/n18_w4_d0.20.txt">104</A></TD><TD><A HREF="codes/n18_w5_d0.20.txt">237</A></TD><TD><A HREF="codes/n18_w6_d0.20.txt">493</A></TD><TD><A HREF="codes/n18_w7_d0.20.txt">762</A></TD><TD><A HREF="codes/n18_w8_d0.20.txt">1121</A></TD><TD><B><A HREF="codes/n18_w9_d0.20.txt">300</A></B></TD><TD></TD></TR>
 <TR><TD>19</TD><TD><A HREF="codes/n19_w3_d0.20.txt">30</A></TD><TD><A HREF="codes/n19_w4_d0.20.txt">120</A></TD><TD><A HREF="codes/n19_w5_d0.20.txt">324</A></TD><TD><A HREF="codes/n19_w6_d0.20.txt">735</A></TD><TD><A HREF="codes/n19_w7_d0.20.txt">1311</A></TD><TD><A HREF="codes/n19_w8_d0.20.txt">1962</A></TD><TD><B><A HREF="codes/n19_w9_d0.20.txt">807-827</A></B></TD><TD></TD></TR>
 <TR><TD>20</TD><TD><A HREF="codes/n20_w3_d0.20.txt">33</A></TD><TD><A HREF="codes/n20_w4_d0.20.txt">143</A></TD><TD><A HREF="codes/n20_w5_d0.20.txt">384</A></TD><TD><A HREF="codes/n20_w6_d0.20.txt">932</A></TD><TD><A HREF="codes/n20_w7_d0.20.txt">1778</A></TD><TD><B><A HREF="codes/n20_w8_d0.20.txt">2041</A></B></TD><TD>&mdash;</TD><TD><B><A HREF="codes/n20_w10_d0.20.txt">734-780</A></B></TD></TR>
-</TABLE><H4>&theta; = 0.40</H4><TABLE BORDER="1"><TR><TD>n \ w</TD><TD> 3 </TD><TD> 4 </TD><TD> 5 </TD><TD> 6 </TD><TD> 7 </TD><TD> 8 </TD><TD> 9 </TD><TD> 10 </TD></TR>
+</TABLE><H4><A NAME="t0.40">&theta; = 0.40</A></H4><TABLE BORDER="1"><TR><TD>n \ w</TD><TD> 3 </TD><TD> 4 </TD><TD> 5 </TD><TD> 6 </TD><TD> 7 </TD><TD> 8 </TD><TD> 9 </TD><TD> 10 </TD></TR>
 <TR><TD>6</TD><TD><A HREF="codes/n6_w3_d0.40.txt">3</A></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD></TR>
 <TR><TD>7</TD><TD><A HREF="codes/n7_w3_d0.40.txt">4</A></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD></TR>
 <TR><TD>8</TD><TD><A HREF="codes/n8_w3_d0.40.txt">5</A></TD><TD><B><A HREF="codes/n8_w4_d0.40.txt">6</A></B></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD></TR>
@@ -121,7 +146,8 @@ Each entry links to a file with one codeword per line (a 0/1 matrix). &mdash; = 
 <TR><TD>20</TD><TD><A HREF="codes/n20_w3_d0.40.txt">33</A></TD><TD><A HREF="codes/n20_w4_d0.40.txt">143</A></TD><TD><A HREF="codes/n20_w5_d0.40.txt">384</A></TD><TD><B><A HREF="codes/n20_w6_d0.40.txt">667</A></B></TD><TD><B><A HREF="codes/n20_w7_d0.40.txt">479-501</A></B></TD><TD><B><A HREF="codes/n20_w8_d0.40.txt">332-695</A></B></TD><TD>&mdash;</TD><TD><B><A HREF="codes/n20_w10_d0.40.txt">72-2377</A></B></TD></TR>
 </TABLE>
 
-<H3>4. Table of &delta;(n,w): separation of the full alphabet</H3>
+<P style="font-size:90%"><A HREF="#top">top</A></P>
+<H3><A NAME="s4">4. Table of &delta;(n,w): separation of the full alphabet</A></H3>
 <P>The largest &theta; for which all c(n,w) classes form a code. Large &delta; = every phase-blind-distinguishable word is also well separated.</P>
 <TABLE BORDER="1"><TR><TD>n \ w</TD><TD> 3 </TD><TD> 4 </TD><TD> 5 </TD><TD> 6 </TD><TD> 7 </TD><TD> 8 </TD><TD> 9 </TD><TD> 10 </TD></TR>
 <TR><TD>6</TD><TD>0.667</TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD></TR>
@@ -141,7 +167,8 @@ Each entry links to a file with one codeword per line (a 0/1 matrix). &mdash; = 
 <TR><TD>20</TD><TD>1.368</TD><TD>0.769</TD><TD>0.492</TD><TD>0.342</TD><TD>0.251</TD><TD>0.192</TD><TD></TD><TD>0.123</TD></TR>
 </TABLE>
 
-<H3>5. Matrices</H3>
+<P style="font-size:90%"><A HREF="#top">top</A></P>
+<H3><A NAME="s5">5. Matrices</A></H3>
 <P>The 13 shifts of the (13,4,1) difference set {0,1,3,9} (a circulant; optimal for the Hamming problem A(13,6,4) = 13) have a single signature: S = 1 for these 13 words.</P>
 <PRE>1101000001000
 0110100000100
@@ -187,7 +214,8 @@ Each entry links to a file with one codeword per line (a 0/1 matrix). &mdash; = 
 110011001100
 101010101010</PRE>
 
-<H3>6. Use: an intensity-only receiver in additive noise</H3>
+<P style="font-size:90%"><A HREF="#top">top</A></P>
+<H3><A NAME="s6">6. Use: an intensity-only receiver in additive noise</A></H3>
 <P>Each position of the 0/1 word is observed with Gaussian noise sigma; the receiver computes |FFT|<sup>2</sup> and decodes by the nearest stored signature (3000 trials per cell).</P>
 <P>n=16, w=6, K=12 words (chance error 0.917; 246 signatures exist). <B>spectral-opt</B>: the K classes found by randomised farthest-point search with the largest minimum spectral distance (0.940). <B>distinct</B>: K random classes (min distance 0.426). <B>Hamming</B>: greedy codes of maximal Hamming distance, 5 random draws (mean, [min-max] of error); 0 of 5 draws contain two words with identical signatures. <B>cyclic</B>: K shifts of one word.</P>
 <TABLE BORDER="1"><TR><TD>noise sigma</TD><TD>spectral-opt</TD><TD>distinct</TD><TD>Hamming mean [min-max]</TD><TD>cyclic family</TD></TR>
@@ -226,7 +254,8 @@ Each entry links to a file with one codeword per line (a 0/1 matrix). &mdash; = 
 <TR><TD>0.5</TD><TD><B>0.699</B></TD><TD>0.744</TD><TD>0.789 [0.775-0.809]</TD><TD>0.926</TD></TR>
 </TABLE>
 
-<H3>7. Link to hyperdimensional computing (HDC) and optical orthogonal codes</H3>
+<P style="font-size:90%"><A HREF="#top">top</A></P>
+<H3><A NAME="s7">7. Link to hyperdimensional computing (HDC) and optical orthogonal codes</A></H3>
 <P>In HDC an item is bound to a role by a cyclic shift (permutation) or circular convolution, items are bundled by superposition, and the readout correlates the bundle against
 a codebook (a resonator network iterates this). With sparse binary constant-weight vectors the bundle is the integer sum of shifted codewords and the readout scores are
 the circular cross-correlations with the codebook: the same interference as optical CDMA. Three consequences, one of them measured below.</P>
@@ -251,11 +280,13 @@ the circular cross-correlations with the codebook: the same interference as opti
 </TABLE>
 <P>Counted: the OOC codebook has maximum auto/cross-correlation 1, the random and Hamming codebooks 3 and 2. Guarantee holds for T &le; 3 (exact, 1.000).</P>
 
-<H3>8. Notes</H3>
+<P style="font-size:90%"><A HREF="#top">top</A></P>
+<H3><A NAME="s8">8. Notes</A></H3>
 <UL>
 <LI>All sizes in sections 3 are lower bounds by explicit codes (files) and, where marked exact, upper bounds by the integer program. 239 of the 252 entries are proven optimal; the other 13 are shown as lb-ub.</LI>
 <LI>c(n,w) agrees with the number of bracelets for w &le; 3 in every cell computed (n &le; 30) and falls below it first for w = 4 (n = 8: the pair {0,1,2,5}, {0,1,3,4}). For n &le; 24 these counts can also be derived from the enumeration of Z-related sets by Jedrzejewski and Johnson (arXiv:1304.6608, 2013); our values agree in the cells checked.</LI>
-<LI>Not literature-checked beyond the items in <A HREF="related_work.md">related_work.md</A>. Nothing here is submitted anywhere.</LI>
+<LI>Not literature-checked beyond the items in <A href="https://github.com/owhs/code-table-improvements/blob/main/spectral_signature/related_work.md">related_work.md</A>. Nothing here is submitted anywhere.</LI>
 </UL>
+<P style="font-size:90%"><A HREF="#top">top</A></P>
 </BODY>
 </HTML>
