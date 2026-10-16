@@ -32,7 +32,7 @@ nav a { margin-right:10px; }
 <body>
 <h1>New lower bounds for your code tables</h1>
 <p class=sub>Oscar Sanchez, 16 October 2026 &middot; values compared with your pages as read that day</p>
-<nav><a href="#s1">1. new bounds</a> <a href="#s2">2. Laaksonen&ndash;&Ouml;sterg&aring;rd</a> <a href="#s3">3. a possible new table</a> <a href="#s4">4. files and checks</a></nav>
+<nav><a href="#s1">1. new bounds</a> <a href="#s2">2. Laaksonen&ndash;&Ouml;sterg&aring;rd</a> <a href="#s3">3. a new table</a> <a href="#s4">4. files and checks</a></nav>
 
 <div class=summary>
 <table>
@@ -119,7 +119,7 @@ nav a { margin-right:10px; }
 <tr><td class=c>N(4,9,4)</td><td class=n>2484</td><td class=n><a href="https://github.com/owhs/code-table-improvements/blob/main/derived_from_LO2019/codes/mixed_m4_n9_d4.txt">2592</a></td><td class=note>from A<sub>3</sub>(13,4)</td></tr>
 </tbody></table>
 
-<h2 id=s3>3. A possible new table</h2>
+<h2 id=s3>3. A new table: spectral-signature codes</h2>
 <p><a href="https://owhs.github.io/code-table-improvements/spectral_signature/brouwer.html">Bounds for spectral-signature codes</a>, laid out like your pages.</p>
 <p>A receiver that sees only the power spectrum |DFT|<sup>2</sup> of a binary word cannot tell cyclic shifts, reflections or homometric words apart. The 13 shifts of the difference set {0,1,3,9}, for instance, give A(13,6,4) = 13 but a single spectrum. S(n,w,&theta;) is the largest set of weight-w words whose spectra differ by at least &theta;; the page has it for n &le; 20, with 239 of 252 entries proven optimal by integer programming.</p>
 <p>As far as I can find, this table is new. A literature search found nothing that defines codes by a spectral distance or tabulates S(n,w,&theta;): the nearest work (coding for the turnpike and beltway problems, phaseless and intensity-only codebooks, cyclically permutable and optical orthogonal codes) uses Hamming or correlation constraints over shifts and keeps homometric words apart. The counts of distinct spectra on the same page are not new for n &le; 24; they follow from Jedrzejewski and Johnson's enumeration of Z-related sets (2013), and agree with it. A <a href="https://github.com/owhs/code-table-improvements/blob/main/spectral_signature/bispectral/README.md">companion note</a> does the same with the triple correlation (bispectrum), which also separates homometric words; up to n = 18 its only collisions are mirror pairs, of the kind given by Keleti and Kolountzakis. Details: <a href="https://github.com/owhs/code-table-improvements/blob/main/spectral_signature/related_work.md">related work</a>.</p>
