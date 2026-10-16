@@ -11,7 +11,7 @@ Each result folder has the codes as plain text and a checker that uses only the 
 | `constant_weight_A31_10_12_1015/` | A(31,10,12) >= 1015 | 961 |
 | `constant_weight_A31_10_12/` | A(31,10,12) >= 961 (earlier code, superseded by 1015; on Brouwer's page since 2026-10-14) | 930 before |
 | `constant_weight_A32_10_10/` | A(32,10,10) >= 558 | 500 |
-| `ternary_mixed/` | 26 codes (24 found by search, 2 derived from them), for example A_3(14,8) >= 123, N(5,8,5) >= 513, N(10,4,4) >= 1104 | 108, 486, 1050 |
+| `ternary_mixed/` | 27 codes (25 found by search, 2 derived from them), for example A_3(15,5) >= 7847, A_3(14,8) >= 123, N(5,8,5) >= 513, N(10,4,4) >= 1104 | 7812, 108, 486, 1050 |
 | `quinary/A5_10_4_18750/` | A_5(10,4) >= 18750 | 17500 |
 | `quinary/A5_9_4_4500/` | A_5(9,4) >= 4500 | 4375 |
 | `quinary/reproductions_LO2019/` | independent codes for A_5(8,5) >= 257 and A_5(7,5) >= 57, and A_5(7,4) >= 257 by deleting a coordinate of the first; these values are due to Laaksonen and Ostergard (2019, Table 3) and are not yet on the 5-ary page | 165, 53, 250 |

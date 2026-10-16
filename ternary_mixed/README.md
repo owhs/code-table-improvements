@@ -8,6 +8,7 @@ m binary and n ternary coordinates and minimum Hamming distance d. In the files 
 | cell | table lower bound | table upper bound | new size | gain | table page |
 |---|---:|---:|---:|---:|---|
 | A_3(14,8) | 108 | 237 | **123** | +15 | ternary-1.html |
+| A_3(15,5) | 7812 | — | **7847** | +35 | ternary-1.html (found 2026-10-16 by repacking orbits of the 7812 code) |
 | N(1,13,8) | 81 | 179 | **86** | +5 | 23codes.html |
 | N(2,9,7) | 18 | 24 | **19** | +1 | 23codes.html |
 | N(2,11,7) | 75 | 144 | **77** | +2 | 23codes.html |
