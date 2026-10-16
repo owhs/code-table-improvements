@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>New lower bounds, October 2026</title>
+<style>
+:root { --bg:#ffffff; --fg:#1d1d1f; --muted:#5f6368; --line:#d9dce1; --head:#f3f4f6; --link:#1a56b0; --accent:#f7f3e8; }
+@media (prefers-color-scheme: dark) { :root { --bg:#16181b; --fg:#e8e8ea; --muted:#a0a4ab; --line:#33373d; --head:#1f2226; --link:#8ab4f8; --accent:#22252a; } }
+html { background:var(--bg); }
+body { background:var(--bg); color:var(--fg); font:16px/1.55 Georgia, 'Times New Roman', serif; max-width:760px; margin:0 auto; padding:28px 16px 60px; }
+h1 { font-size:1.6rem; margin:0 0 4px; font-weight:normal; }
+h2 { font-size:1.25rem; margin:36px 0 6px; font-weight:normal; border-bottom:1px solid var(--line); padding-bottom:4px; }
+h3 { font-size:1rem; margin:20px 0 4px; font-family:system-ui, sans-serif; color:var(--muted); font-weight:600; letter-spacing:.02em; }
+p, li { margin:8px 0; }
+a { color:var(--link); }
+.sub { color:var(--muted); margin:0 0 18px; font-family:system-ui, sans-serif; font-size:.9rem; }
+.summary { background:var(--accent); border:1px solid var(--line); border-radius:6px; padding:12px 16px; margin:18px 0; }
+.summary td { border:none; padding:2px 14px 2px 0; }
+table { border-collapse:collapse; width:100%; font-family:system-ui, sans-serif; font-size:.92rem; }
+th, td { border-bottom:1px solid var(--line); padding:5px 8px; text-align:left; }
+th { background:var(--head); font-weight:600; }
+td.n, th.n { text-align:right; font-variant-numeric:tabular-nums; width:90px; }
+td.c { white-space:nowrap; width:200px; }
+td.note { color:var(--muted); }
+.notes li { font-size:.95rem; }
+code { font-size:.9em; }
+nav { font-family:system-ui, sans-serif; font-size:.85rem; color:var(--muted); }
+nav a { margin-right:10px; }
+</style>
+</head>
+<body>
+<h1>New lower bounds for your code tables</h1>
+<p class=sub>Oscar Sanchez, 16 October 2026 &middot; values compared with your pages as read that day</p>
+<nav><a href="#s1">1. new bounds</a> <a href="#s2">2. Laaksonen&ndash;&Ouml;sterg&aring;rd</a> <a href="#s3">3. a possible new table</a> <a href="#s4">4. files and checks</a></nav>
+
+<div class=summary>
+<table>
+<tr><td><b>32</b></td><td>new lower bounds of mine (section 1)</td></tr>
+<tr><td><b>10</b></td><td>values from Laaksonen and &Ouml;sterg&aring;rd's work not yet on your pages (section 2)</td></tr>
+</table>
+</div>
+
+<p>Mostly found by prescribed-automorphism search (fix a group, list its orbits, choose orbits by a clique search, as in Laaksonen and &Ouml;sterg&aring;rd), with a few other techniques and some luck. Every new value links to its code.</p>
+
+<h2 id=s1>1. New lower bounds</h2>
+<h3>Binary</h3>
+<table><thead><tr><th>cell</th><th class=n>your page</th><th class=n>new</th><th></th></tr></thead><tbody>
+<tr><td class=c>A(18,4) = A(17,3)</td><td class=n>5632</td><td class=n><a href="https://github.com/owhs/code-table-improvements/blob/main/binary_A18_4/A18_4_6144.txt">6144</a></td><td class=note></td></tr>
+<tr><td class=c>A(17,4) = A(16,3)</td><td class=n>2816</td><td class=n><a href="https://github.com/owhs/code-table-improvements/blob/main/binary_A18_4/A17_4_3072.txt">3072</a></td><td class=note></td></tr>
+</tbody></table>
+<h3>Constant weight</h3>
+<table><thead><tr><th>cell</th><th class=n>your page</th><th class=n>new</th><th></th></tr></thead><tbody>
+<tr><td class=c>A(31,10,12)</td><td class=n>961</td><td class=n><a href="https://github.com/owhs/code-table-improvements/blob/main/constant_weight_A31_10_12_1015/code_1015_matrix.txt">1015</a></td><td class=note>replaces my 961</td></tr>
+<tr><td class=c>A(32,10,10)</td><td class=n>500</td><td class=n><a href="https://github.com/owhs/code-table-improvements/blob/main/constant_weight_A32_10_10/code_558_matrix.txt">558</a></td><td class=note></td></tr>
+</tbody></table>
+<h3>Ternary</h3>
+<table><thead><tr><th>cell</th><th class=n>your page</th><th class=n>new</th><th></th></tr></thead><tbody>
+<tr><td class=c>A<sub>3</sub>(14,8)</td><td class=n>108</td><td class=n><a href="https://github.com/owhs/code-table-improvements/blob/main/ternary_mixed/codes/ternary_n14_d8.txt">123</a></td><td class=note></td></tr>
+</tbody></table>
+<h3>Mixed binary/ternary N(m,n,d)</h3>
+<table><thead><tr><th>cell</th><th class=n>your page</th><th class=n>new</th><th></th></tr></thead><tbody>
+<tr><td class=c>N(1,13,8)</td><td class=n>81</td><td class=n><a href="https://github.com/owhs/code-table-improvements/blob/main/ternary_mixed/codes/mixed_m1_n13_d8.txt">86</a></td><td class=note></td></tr>
+<tr><td class=c>N(2,9,7)</td><td class=n>18</td><td class=n><a href="https://github.com/owhs/code-table-improvements/blob/main/ternary_mixed/codes/mixed_m2_n9_d7.txt">19</a></td><td class=note></td></tr>
+<tr><td class=c>N(2,11,7)</td><td class=n>75</td><td class=n><a href="https://github.com/owhs/code-table-improvements/blob/main/ternary_mixed/codes/mixed_m2_n11_d7.txt">77</a></td><td class=note></td></tr>
+<tr><td class=c>N(3,9,7)</td><td class=n>28</td><td class=n><a href="https://github.com/owhs/code-table-improvements/blob/main/ternary_mixed/codes/mixed_m3_n9_d7.txt">30</a></td><td class=note></td></tr>
+<tr><td class=c>N(3,10,5)</td><td class=n>729</td><td class=n><a href="https://github.com/owhs/code-table-improvements/blob/main/ternary_mixed/codes/mixed_m3_n10_d5.txt">736</a></td><td class=note></td></tr>
+<tr><td class=c>N(3,10,8)</td><td class=n>24</td><td class=n><a href="https://github.com/owhs/code-table-improvements/blob/main/ternary_mixed/codes/mixed_m3_n10_d8.txt">26</a></td><td class=note></td></tr>
+<tr><td class=c>N(5,8,5)</td><td class=n>486</td><td class=n><a href="https://github.com/owhs/code-table-improvements/blob/main/ternary_mixed/codes/mixed_m5_n8_d5.txt">513</a></td><td class=note></td></tr>
+<tr><td class=c>N(5,8,7)</td><td class=n>36</td><td class=n><a href="https://github.com/owhs/code-table-improvements/blob/main/ternary_mixed/codes/mixed_m5_n8_d7.txt">39</a></td><td class=note></td></tr>
+<tr><td class=c>N(5,9,6)</td><td class=n>486</td><td class=n><a href="https://github.com/owhs/code-table-improvements/blob/main/ternary_mixed/codes/mixed_m5_n9_d6.txt">513</a></td><td class=note></td></tr>
+<tr><td class=c>N(5,9,7)</td><td class=n>69</td><td class=n><a href="https://github.com/owhs/code-table-improvements/blob/main/ternary_mixed/codes/mixed_m5_n9_d7.txt">73</a></td><td class=note></td></tr>
+<tr><td class=c>N(5,9,8)</td><td class=n>30</td><td class=n><a href="https://github.com/owhs/code-table-improvements/blob/main/ternary_mixed/codes/mixed_m5_n9_d8.txt">32</a></td><td class=note></td></tr>
+<tr><td class=c>N(6,8,6)</td><td class=n>324</td><td class=n><a href="https://github.com/owhs/code-table-improvements/blob/main/ternary_mixed/codes/mixed_m6_n8_d6.txt">342</a></td><td class=note>from N(5,9,6)</td></tr>
+<tr><td class=c>N(6,8,8)</td><td class=n>28</td><td class=n><a href="https://github.com/owhs/code-table-improvements/blob/main/ternary_mixed/codes/mixed_m6_n8_d8.txt">32</a></td><td class=note></td></tr>
+<tr><td class=c>N(7,4,5)</td><td class=n>44</td><td class=n><a href="https://github.com/owhs/code-table-improvements/blob/main/ternary_mixed/codes/mixed_m7_n4_d5.txt">45</a></td><td class=note></td></tr>
+<tr><td class=c>N(7,5,5)</td><td class=n>99</td><td class=n><a href="https://github.com/owhs/code-table-improvements/blob/main/ternary_mixed/codes/mixed_m7_n5_d5.txt">104</a></td><td class=note></td></tr>
+<tr><td class=c>N(7,6,7)</td><td class=n>24</td><td class=n><a href="https://github.com/owhs/code-table-improvements/blob/main/ternary_mixed/codes/mixed_m7_n6_d7.txt">27</a></td><td class=note></td></tr>
+<tr><td class=c>N(7,7,6)</td><td class=n>216</td><td class=n><a href="https://github.com/owhs/code-table-improvements/blob/main/ternary_mixed/codes/mixed_m7_n7_d6.txt">228</a></td><td class=note>from N(5,9,6)</td></tr>
+<tr><td class=c>N(8,4,5)</td><td class=n>84</td><td class=n><a href="https://github.com/owhs/code-table-improvements/blob/main/ternary_mixed/codes/mixed_m8_n4_d5.txt">85</a></td><td class=note></td></tr>
+<tr><td class=c>N(9,4,4)</td><td class=n>548</td><td class=n><a href="https://github.com/owhs/code-table-improvements/blob/main/ternary_mixed/codes/mixed_m9_n4_d4.txt">573</a></td><td class=note></td></tr>
+<tr><td class=c>N(9,4,5)</td><td class=n>136</td><td class=n><a href="https://github.com/owhs/code-table-improvements/blob/main/ternary_mixed/codes/mixed_m9_n4_d5.txt">144</a></td><td class=note></td></tr>
+<tr><td class=c>N(10,3,3)</td><td class=n>1152</td><td class=n><a href="https://github.com/owhs/code-table-improvements/blob/main/ternary_mixed/codes/mixed_m10_n3_d3.txt">1176</a></td><td class=note></td></tr>
+<tr><td class=c>N(10,4,4)</td><td class=n>1050</td><td class=n><a href="https://github.com/owhs/code-table-improvements/blob/main/ternary_mixed/codes/mixed_m10_n4_d4.txt">1104</a></td><td class=note></td></tr>
+<tr><td class=c>N(10,4,5)</td><td class=n>234</td><td class=n><a href="https://github.com/owhs/code-table-improvements/blob/main/ternary_mixed/codes/mixed_m10_n4_d5.txt">235</a></td><td class=note></td></tr>
+<tr><td class=c>N(10,4,6)</td><td class=n>88</td><td class=n><a href="https://github.com/owhs/code-table-improvements/blob/main/ternary_mixed/codes/mixed_m10_n4_d6.txt">96</a></td><td class=note></td></tr>
+<tr><td class=c>N(12,2,3)</td><td class=n>1536</td><td class=n><a href="https://github.com/owhs/code-table-improvements/blob/main/ternary_mixed/codes/mixed_m12_n2_d3.txt">1552</a></td><td class=note></td></tr>
+</tbody></table>
+<h3>5-ary</h3>
+<table><thead><tr><th>cell</th><th class=n>your page</th><th class=n>new</th><th></th></tr></thead><tbody>
+<tr><td class=c>A<sub>5</sub>(10,4)</td><td class=n>17500</td><td class=n><a href="https://github.com/owhs/code-table-improvements/blob/main/quinary/A5_10_4_18750/code_18750.txt">18750</a></td><td class=note></td></tr>
+<tr><td class=c>A<sub>5</sub>(9,4)</td><td class=n>4375</td><td class=n><a href="https://github.com/owhs/code-table-improvements/blob/main/quinary/A5_9_4_4500/code_4500.txt">4500</a></td><td class=note></td></tr>
+</tbody></table>
+
+<h3>Notes</h3>
+<ul class=notes>
+<li><b>A(18,4)</b>: the Gray image of a Z<sub>4</sub> code of length 9 and minimum Lee distance 4, made of 96 cosets of a 64-element submodule with all entries in {0,2}. A(17,4) is the half with last coordinate 1, that coordinate deleted; A(16,3) is that code punctured. Construction and coset representatives: <a href="https://github.com/owhs/code-table-improvements/tree/main/binary_A18_4">binary folder</a>.</li>
+<li><b>A(31,10,12)</b>: 5 orbits of Z<sub>29</sub> &#8906; Z<sub>7</sub> on 29 coordinates, with 2 fixed points. <b>A(32,10,10)</b>: orbits of Z<sub>31</sub> &#8906; Z<sub>5</sub> on 31 coordinates, with 1 fixed point.</li>
+<li><b>5-ary</b>: 30 and 36 cosets of a doubled code (a,a) with sum(a) = 0. The published 17500 and 4375 have the same form with 28 and 35 cosets, so this is one more coset, not a new idea.</li>
+<li><b>N(6,8,6), N(7,7,6)</b> follow from N(5,9,6): keep one or two ternary coordinates to their two most frequent symbols.</li>
+<li>The mixed codes were compared with your page only.</li>
+</ul>
+
+<h2 id=s2>2. From the work of Laaksonen and &Ouml;sterg&aring;rd <span style="font-size:.85em;color:var(--muted)">(theirs, not mine)</span></h2>
+<p>Five 5-ary values from Cryptogr. Commun. 11 (2019), Table 3, are not on your 5-ary page yet. I checked their four codes; my two were found independently. A<sub>5</sub>(7,4) &ge; 257 rests on their paper alone.</p>
+<table><thead><tr><th>cell</th><th class=n>your page</th><th class=n>2019</th><th>codes</th></tr></thead><tbody>
+<tr><td class=c>A<sub>5</sub>(7,4)</td><td class=n>250</td><td class=n>257</td><td class=note>no code file found (my best is 254)</td></tr>
+<tr><td class=c>A<sub>5</sub>(7,5)</td><td class=n>53</td><td class=n>57</td><td class=note><a href="https://www.cs.helsinki.fi/u/ahslaaks/codes/">theirs</a>, <a href="https://github.com/owhs/code-table-improvements/blob/main/quinary/reproductions_LO2019/code_A5_7_5_57.txt">mine</a></td></tr>
+<tr><td class=c>A<sub>5</sub>(8,5)</td><td class=n>165</td><td class=n>257</td><td class=note><a href="https://www.cs.helsinki.fi/u/ahslaaks/codes/">theirs</a>, <a href="https://github.com/owhs/code-table-improvements/blob/main/quinary/reproductions_LO2019/code_A5_8_5_257.txt">mine</a></td></tr>
+<tr><td class=c>A<sub>5</sub>(9,5)</td><td class=n>725</td><td class=n>857</td><td class=note><a href="https://www.cs.helsinki.fi/u/ahslaaks/codes/">theirs</a></td></tr>
+<tr><td class=c>A<sub>5</sub>(9,6)</td><td class=n>135</td><td class=n>157</td><td class=note><a href="https://www.cs.helsinki.fi/u/ahslaaks/codes/">theirs</a></td></tr>
+</tbody></table>
+<p>Their ternary codes A<sub>3</sub>(13,4) &ge; 13122 and A<sub>3</sub>(15,4) &ge; 83106 also give five mixed bounds your mixed page does not have yet, by making one or more ternary coordinates binary (keep the two most frequent symbols):</p>
+<table><thead><tr><th>cell</th><th class=n>your page</th><th class=n>new</th><th></th></tr></thead><tbody>
+<tr><td class=c>N(1,12,4)</td><td class=n>8019</td><td class=n><a href="https://github.com/owhs/code-table-improvements/blob/main/derived_from_LO2019/codes/mixed_m1_n12_d4.txt">8748</a></td><td class=note>from A<sub>3</sub>(13,4)</td></tr>
+<tr><td class=c>N(1,13,4)</td><td class=n>16767</td><td class=n><a href="https://github.com/owhs/code-table-improvements/blob/main/derived_from_LO2019/codes/mixed_m1_n13_d4.txt">18711</a></td><td class=note>from A<sub>3</sub>(15,4), shortened first</td></tr>
+<tr><td class=c>N(2,11,4)</td><td class=n>5589</td><td class=n><a href="https://github.com/owhs/code-table-improvements/blob/main/derived_from_LO2019/codes/mixed_m2_n11_d4.txt">5832</a></td><td class=note>from A<sub>3</sub>(13,4)</td></tr>
+<tr><td class=c>N(3,10,4)</td><td class=n>3726</td><td class=n><a href="https://github.com/owhs/code-table-improvements/blob/main/derived_from_LO2019/codes/mixed_m3_n10_d4.txt">3888</a></td><td class=note>from A<sub>3</sub>(13,4)</td></tr>
+<tr><td class=c>N(4,9,4)</td><td class=n>2484</td><td class=n><a href="https://github.com/owhs/code-table-improvements/blob/main/derived_from_LO2019/codes/mixed_m4_n9_d4.txt">2592</a></td><td class=note>from A<sub>3</sub>(13,4)</td></tr>
+</tbody></table>
+
+<h2 id=s3>3. A possible new table</h2>
+<p><a href="https://owhs.github.io/code-table-improvements/spectral_signature/brouwer.html">Bounds for spectral-signature codes</a>, laid out like your pages.</p>
+<p>A receiver that sees only the power spectrum |DFT|<sup>2</sup> of a binary word cannot tell cyclic shifts, reflections or homometric words apart. The 13 shifts of the difference set {0,1,3,9}, for instance, give A(13,6,4) = 13 but a single spectrum. S(n,w,&theta;) is the largest set of weight-w words whose spectra differ by at least &theta;; the page has it for n &le; 20, with 239 of 252 entries proven optimal by integer programming.</p>
+<p>I found no earlier table of S(n,w,&theta;). The counts of distinct spectra on the same page are known for n &le; 24 (Jedrzejewski and Johnson, 2013) and agree. A <a href="https://github.com/owhs/code-table-improvements/blob/main/spectral_signature/bispectral/README.md">short note</a> does the same with the triple correlation. Is this a variation of an existing table?</p>
+
+<h2 id=s4>4. Files and checks</h2>
+<p>Everything is in <a href="https://github.com/owhs/code-table-improvements">github.com/owhs/code-table-improvements</a>: plain text, one word per line, with checkers that use only the Python standard library. Each code was checked by three separate programs.</p>
+<p>Complain if anything is wrong.</p>
+</body>
+</html>
