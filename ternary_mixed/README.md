@@ -31,6 +31,13 @@ m binary and n ternary coordinates and minimum Hamming distance d. In the files 
 | N(10,4,5) | 234 | 390 | **235** | +1 | 23codes.html |
 | N(10,4,6) | 88 | 144 | **96** | +8 | 23codes.html |
 | N(12,2,3) | 1536 | 2011 | **1552** | +16 | 23codes.html |
+| N(6,8,6) | 324 | 527 | **342** | +18 | 23codes.html (derived) |
+| N(7,7,6) | 216 | 375 | **228** | +12 | 23codes.html (derived) |
+
+The two derived codes come from N(5,9,6) >= 513: keep the words whose ternary coordinate 5 takes its two most frequent
+symbols and relabel that coordinate as binary (342 words); doing the same on coordinate 6 as well gives 228 words. Hamming
+distances are unchanged by this step. Both were found on 2026-10-16 by applying shortening, puncturing and relabelling
+to all codes here and comparing with the live table.
 
 ## Method
 Each code is a union of orbits of a group of coordinate isometries (permutations, symbol scalings and shifts), found by
