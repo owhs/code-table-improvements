@@ -17,7 +17,7 @@ partners have identical signatures; for w = n/2 a word and its complement do too
 d(x,y) = &sum;<sub>k</sub> |P<sub>x</sub>(k) - P<sub>y</sub>(k)| / w<sup>2</sup>.
 A <I>spectral code</I> C(n,w,&theta;) is a set of weight-w words with pairwise d &ge; &theta;. Let S(n,w,&theta;) be the largest size.
 S(n,w,&theta;) &le; c(n,w), the number of distinct signatures; equality holds exactly for &theta; &le; &delta;(n,w), the smallest distance between two classes.
-The ordinary constant-weight code problem A(n,d,w) uses Hamming distance and counts shifts as different words; here a shift-closed code of any size is worthless.</P>
+The ordinary constant-weight code problem A(n,d,w) uses Hamming distance and counts shifts as different words; here all shifts of a word have the same signature, so a shift-closed code has S = 1.</P>
 
 <H3>2. Table of c(n,w): the number of distinct power signatures (weight w, length n)</H3>
 <P>Values with * are smaller than the number of bracelets (binary necklaces up to rotation and reflection) because of homometric merging; hover for the count.
@@ -142,7 +142,7 @@ Each entry links to a file with one codeword per line (a 0/1 matrix). &mdash; = 
 </TABLE>
 
 <H3>5. Matrices</H3>
-<P>The 13 shifts of the (13,4,1) difference set {0,1,3,9} (a circulant; optimal for the Hamming problem A(13,6,4) = 13) have ONE signature: S = 1 for these 13 words.</P>
+<P>The 13 shifts of the (13,4,1) difference set {0,1,3,9} (a circulant; optimal for the Hamming problem A(13,6,4) = 13) have a single signature: S = 1 for these 13 words.</P>
 <PRE>1101000001000
 0110100000100
 0011010000010
@@ -236,7 +236,7 @@ the circular cross-correlations with the codebook: the same interference as opti
 <LI>Rosenblatt-Seymour (A = U+V against B = U-V) says binding with V and with the reversal of V give words with the same power spectrum: a magnitude-only readout cannot
  distinguish them. This is the homometric ambiguity of section 1 seen as an unbinding ambiguity.</LI>
 <LI>Difference sets are the binary analogue of the unit-magnitude (FHRR) role vectors: perfect autocorrelation means the shifts of one word are quasi-orthogonal, which is ideal for roles
- but, by section 6, worthless as an alphabet for an intensity-only receiver (all shifts share one signature). Roles want flat spectra; alphabets for phase-blind readout want spread-out spectra.</LI>
+ but, by section 6, of no use as an alphabet for an intensity-only receiver (all shifts share one signature). Roles want flat spectra; alphabets for phase-blind readout want spread-out spectra.</LI>
 </UL>
 <P>Measured (n = 127, w = 4, 10 words, bundle of T random (word, shift) pairs, readout = top-T correlation peaks, 400 trials per cell; fraction of items recovered):</P>
 <TABLE BORDER="1"><TR><TD>items bundled T</TD><TD>OOC codebook (corr &le; 1)</TD><TD>random weight-4 words</TD><TD>Hamming code</TD></TR>
@@ -253,7 +253,7 @@ the circular cross-correlations with the codebook: the same interference as opti
 
 <H3>8. Notes</H3>
 <UL>
-<LI>All sizes in sections 3 are lower bounds by explicit codes (files) and, where marked exact, upper bounds by the integer program. One cell may be open (lb-ub).</LI>
+<LI>All sizes in sections 3 are lower bounds by explicit codes (files) and, where marked exact, upper bounds by the integer program. 239 of the 252 entries are proven optimal; the other 13 are shown as lb-ub.</LI>
 <LI>c(n,w) agrees with the number of bracelets for w &le; 3 in every cell computed (n &le; 30) and falls below it first for w = 4 (n = 8: the pair {0,1,2,5}, {0,1,3,4}). For n &le; 24 these counts can also be derived from the enumeration of Z-related sets by Jedrzejewski and Johnson (arXiv:1304.6608, 2013); our values agree in the cells checked.</LI>
 <LI>Not literature-checked beyond the items in <A HREF="related_work.md">related_work.md</A>. Nothing here is submitted anywhere.</LI>
 </UL>

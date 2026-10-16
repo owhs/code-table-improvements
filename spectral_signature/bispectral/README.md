@@ -1,6 +1,6 @@
 # Bispectral-signature codes vs power-spectrum codes (extension of the spectral-signature table in the parent folder)
 
-Constant-weight binary words, length n, weight w. Three receivers, each with its own invariances. Nothing in the parent folder was edited.
+Constant-weight binary words, length n, weight w. Three receivers, each with its own invariances.
 
 | receiver | sees | invariant to shift | invariant to mirror | homometric partners | complement at w=n/2 |
 |---|---|---|---|---|---|
@@ -14,14 +14,16 @@ Tm is the like-for-like comparison with P (both are blind to shift and reflectio
 
 | (n,w) | P | Tm | T | Tm/P | T/Tm (mirror splitting) |
 |---|---|---|---|---|---|
-| (12,6) | 35 | 50 | 80 | 1.43 | 1.60 |
-| (14,7) | 85 | 133 | 246 | 1.56 | 1.85 |
+| (12,6) | 35 | 50 | 79 | 1.43 | 1.58 |
+| (14,7) | 85 | 133 | 245 | 1.56 | 1.84 |
 | (16,6) | 246 | 280 | 504 | 1.14 | 1.80 |
-| (16,8) | 254 | 440 | 810 | 1.73 | 1.84 |
+| (16,8) | 254 | 440 | 806 | 1.73 | 1.83 |
 | (17,8) | 698 | 750 | 1430 | 1.07 | 1.91 |
-| (18,9) | 701 | 1387 | 2704 | 1.98 | 1.95 |
+| (18,9) | 701 | 1387 | 2697 | 1.98 | 1.94 |
 
-**Where the extra classes come from:** roughly a factor 1.6 to 1.95 of T's gain over P is mirror splitting (T/Tm), and the remaining factor 1.07 to 1.98 (Tm/P) is homometric partners becoming distinguishable. For n=16, w=8, T has 3.19 times as many classes as P; 1.84 of that is mirror splitting and 1.73 is resolving homometric partners. The T column alone overstates the benefit and should not be quoted as a like-for-like gain.
+T counts distinct triple correlations directly. It equals the number of necklaces minus the mirror-pair collisions listed under "Prior art" (an earlier version printed the necklace counts 80, 246, 810 and 2704). Tm equals the number of bracelets in every cell.
+
+**Where the extra classes come from:** roughly a factor 1.58 to 1.94 of T's gain over P is mirror splitting (T/Tm), and the remaining factor 1.07 to 1.98 (Tm/P) is homometric partners becoming distinguishable. For n=16, w=8, T has 3.17 times as many classes as P; 1.83 of that is mirror splitting and 1.73 is resolving homometric partners. The T column alone overstates the benefit and should not be quoted as a like-for-like gain.
 
 ## Maximum code size S(theta) (exact MILP, HiGHS, 60 s limit; "opt" = proven optimal, `<= u` = best found with upper bound u)
 

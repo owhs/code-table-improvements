@@ -1,6 +1,7 @@
 # Related work and what is (not) new
 
-Sources below were found by web search on 2026-10-14. Where only an abstract or a search summary was read, it says so. Nothing here was read in full text.
+Sources below were found by web search on 2026-10-14 and 2026-10-16. Where only an abstract or a search summary was read, it says so.
+Read in full or in the relevant part: Keleti and Kolountzakis (arXiv:math/0603415, Theorem 2.22) and the tables of Jedrzejewski and Johnson (arXiv:1304.6608).
 
 ## Closest prior art (the channel, not the code design)
 - Wing Hong Wong, Yifei Lou, Stefano Marchesini, Tieyong Zeng, "One-Dimensional Phase Retrieval: Regularization, Box Relaxation and Uniqueness", arXiv:1904.10157 (2019, revised 2020).
@@ -56,6 +57,6 @@ Five searches (web search, about 50 queries in all), followed by reading the key
 - The packaging as a coding problem: weight-w words, spectral (|DFT|^2, equivalently autocorrelation) distance, exact optimal sizes S(n,w,theta) by integer programming, and files of optimal codes.
 - The tables of S(n,w,theta) and the full-alphabet separation delta(n,w) (computed, checker in this folder). The table of c(n,w) is
   a convenience: for n <= 24 it follows from published enumerations (see above).
-- The measured design rule: shift-closed (cyclic) constant-weight codes, including those from difference sets, are useless for intensity-only detection, while a spectral code of the
+- The measured design rule: shift-closed (cyclic) constant-weight codes, including those from difference sets, have a single signature and so cannot be told apart by intensity-only detection, while a spectral code of the
   same size has a lower error rate than a Hamming-distance code at moderate noise.
 Not claimed: any theorem, any asymptotics, any new bound beyond the computed cells, or novelty relative to literature that was not found by the searches above.
