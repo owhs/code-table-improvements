@@ -32,9 +32,30 @@ at a given separation, and how much better is it than a Hamming-distance code.
 - OEIS A005434 relates to the number of distinct autocorrelations of length-n words (aperiodic, as described by a LIRMM page); the cyclic, weight-resolved counts here are a different
   sequence. A search for the total counts of the class numbers returned no match on 2026-10-14.
 
+## Literature check of 2026-10-16
+Five searches (web search, about 50 queries in all), followed by reading the key sources directly. Findings:
+- **Counts c(n,w).** No OEIS sequence contains our values. F. Jedrzejewski and T. Johnson, *The structure of Z-related sets*
+  (arXiv:1304.6608; Mathematics and Computation in Music 2013) enumerate the Z-related (homometric) sets in Z_N for N up to 24, counted up to
+  translation and inversion. Together with the number of bracelets this determines c(n,w) for n <= 24. Checked against our table:
+  (12,6) 50 - 15 = 35, (16,6) 280 - 34 = 246, and the whole w = 4 column for n = 8 to 19. All agree. So c(n,w) is not new for n <= 24;
+  the values for 25 <= n <= 30 were not found in print (the paper credits J. Wild with tables for larger N, not seen).
+- **First merge.** The first homometric pair is at n = 8, w = 4: {0,1,2,5} and {0,1,3,4}.
+- **Code sizes S(n,w,theta).** Not found. Searched: coding for the turnpike and beltway problems and polymer-based storage (Pattabiraman,
+  Gabrys, Milenkovic, arXiv:1904.09280 and arXiv:2110.02352: linear prefix/suffix compositions, not cyclic autocorrelation);
+  phaseless and intensity-only codebooks (Tasbihi and Kschischang, arXiv:2204.13806: direct detection, not binary constant-weight);
+  spectral-amplitude-coding OCDMA (cross-correlation constraints, not equal spectra); cyclically permutable codes (Bitan and Etzion 1995),
+  optical orthogonal codes (Chung, Salehi, Wei 1989) and comma-free codes. Those use Hamming or correlation constraints over shifts and
+  keep homometric words apart; none tabulates codes under a spectral distance.
+- **Name.** "Spectral-signature code" is not used in coding theory as far as found; "signature codes" is an existing term for another
+  object (fingerprinting), so the full name is kept.
+- **Bispectrum.** See `bispectral/README.md`: completeness of the 3-deck in Z_n is due to Grunbaum-Moore, Pebody and Keleti-Kolountzakis;
+  bispectral codeword encoding for radio exists (Molchanov and Totsky 2008, search summaries only); separation-optimised codes and class
+  counts were not found.
+
 ## What is new
 - The packaging as a coding problem: weight-w words, spectral (|DFT|^2, equivalently autocorrelation) distance, exact optimal sizes S(n,w,theta) by integer programming, and files of optimal codes.
-- The exact tables of c(n,w), the full-alphabet separation delta(n,w), and S(n,w,theta) (all computed, checker in this folder).
+- The tables of S(n,w,theta) and the full-alphabet separation delta(n,w) (computed, checker in this folder). The table of c(n,w) is
+  a convenience: for n <= 24 it follows from published enumerations (see above).
 - The measured design rule: shift-closed (cyclic) constant-weight codes, including those from difference sets, are useless for intensity-only detection, while a spectral code of the
   same size has a lower error rate than a Hamming-distance code at moderate noise.
 Not claimed: any theorem, any asymptotics, any new bound beyond the computed cells, or novelty relative to literature that was not found by the searches above.

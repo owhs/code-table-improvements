@@ -5,8 +5,8 @@ Constant-weight binary words, length n, weight w. Three receivers, each with its
 | receiver | sees | invariant to shift | invariant to mirror | homometric partners | complement at w=n/2 |
 |---|---|---|---|---|---|
 | **P** (baseline) | power spectrum, `d_P = sum_{k=1..n/2} abs(P_x(k)-P_y(k)) / w^2` | yes | yes | merged (same signature) | merged (hexachordal theorem) |
-| **Tm** | triple correlation `T(a,b)=sum_t x_t x_{t+a} x_{t+b}`, signature merged with its mirror image, `d = min(d_T(x,y), d_T(x,mirror y))`, `d_T = sum_{a,b} abs(dT) / w^3` | yes | yes (by construction) | separated | **merged** (same triple correlation) |
-| **T** | the same triple correlation, no mirror merging | yes | **no** (splits mirror pairs) | separated | **merged** |
+| **Tm** | triple correlation `T(a,b)=sum_t x_t x_{t+a} x_{t+b}`, signature merged with its mirror image, `d = min(d_T(x,y), d_T(x,mirror y))`, `d_T = sum_{a,b} abs(dT) / w^3` | yes | yes (by construction) | separated | separated |
+| **T** | the same triple correlation, no mirror merging | yes | **no** (splits most mirror pairs; see below) | separated | separated |
 
 Tm is the like-for-like comparison with P (both are blind to shift and reflection). T is shown to make the size of the mirror-splitting effect visible.
 
@@ -71,10 +71,11 @@ Setup: K=12 words per receiver (farthest-point in that receiver's own distance);
 
 ## Prior art (so nothing here is claimed as new beyond the capacity view)
 
-- Completeness of the triple correlation for subsets of finite cyclic groups: Grunbaum and Moore (3-deck), and Keleti and Kolountzakis, arXiv:math/0603415 (which n make the 3-deck determine every set, plus the random-set result). I read the arXiv text (introduction and results summary): the 3-deck (triple correlation) determines every subset of Z_n up to translation for n a power of an odd prime, a product of two odd primes (Pebody, Gruenbaum-Moore), p^2 q or pqr with distinct odd primes (their Theorem 2.1); it fails for n = 2k with k >= 6 (counterexamples given) and for n = pqrd with p, q distinct primes and r, d > 1. That matches our enumeration: n = 15 and 17 fully resolved, even n = 12, 14, 16, 18 show collisions (we found them all to be set/complement pairs at w=n/2; their counterexamples are not stated in the part I read, so I do not claim to match them).
-- Bispectrum as a complete invariant for generic signals: Kakarala (thesis 1992; arXiv:0902.0196); Kondor (arXiv:cs/0701127); the skew spectrum (arXiv:0712.4259).
-- Set/complement collision at w=n/2: the hexachordal theorem (Babbitt; Kassler 1961, Regener 1974, Wilcox 1983; Lemke-Skiena-Smith).
-- Our own checks, exhaustive for n <= 17 or 18: the triple correlation separates every translation class except set/complement pairs at w=n/2 (1, 1, 4, 7 collisions at (12,6), (14,7), (16,8), (18,9), all complements). That reproduces known facts.
+- Completeness of the triple correlation for subsets of finite cyclic groups: Grunbaum and Moore (3-deck), and Keleti and Kolountzakis, arXiv:math/0603415 (which n make the 3-deck determine every set, plus the random-set result). I read the arXiv text (introduction and results summary): the 3-deck (triple correlation) determines every subset of Z_n up to translation for n a power of an odd prime, a product of two odd primes (Pebody, Gruenbaum-Moore), p^2 q or pqr with distinct odd primes (their Theorem 2.1); it fails for n = 2k with k >= 6 (counterexamples given) and for n = pqrd with p, q distinct primes and r, d > 1. That matches our enumeration: n = 15 and 17 fully resolved, even n = 12, 14, 16, 18 show collisions. Their Theorem 2.22 (read in the full text) gives, for n = 2k with k >= 6, the pair E = {0, 3, 4, ..., k-1, k+1, k+2} and F = {0, 1, 3, ..., k-1, k+2}: both of size n/2, same 3-deck, and F a translate of -E (a mirror pair).
+- Bispectrum as a complete invariant for generic signals: Kakarala (thesis 1992; arXiv:0902.0196); the skew spectrum (arXiv:0712.4259). Kondor (arXiv:cs/0701127) proposed related invariants for images; the arXiv comments say its uniqueness claim was dropped, so it is not cited for completeness.
+- Bispectrum samples have been used to encode codewords for radio links (Molchanov and Totsky 2008; Naumenko et al. 2015; seen in search summaries only, not read). Those works do not optimise a minimum bispectral distance or count classes.
+- Power spectrum at w = n/2: a set and its complement have the same power spectrum (hexachordal theorem; Babbitt; Kassler 1961, Regener 1974, Wilcox 1983; Lemke-Skiena-Smith). This is a property of P, not of T.
+- Our own checks, exhaustive for (12,6), (14,7), (16,8), (18,9): the triple correlation separates every translation class except 1, 1, 4 and 7 pairs, and every one of these pairs is a set and its mirror image (no set/complement pair). At (12,6) and (14,7) the pair is exactly the Keleti-Kolountzakis pair above. An earlier version of this README called these pairs set/complement pairs; that came from a faulty test in `tools/triple_exceptions.py`, now fixed.
 
 The only part not found in the literature search is the code-capacity question (maximum signature-separated code size at a distance threshold), and a thin search can miss things.
 
