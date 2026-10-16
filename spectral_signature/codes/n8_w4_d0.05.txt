@@ -1,0 +1,10 @@
+# spectral-signature code, n=8 w=4, normalised spectral distance >= 0.05: 7 words (optimal)
+# one codeword per line, bit i = position i; words are class representatives
+# distance d(x,y) = sum_{k=1}^{floor(n/2)} | |X_x(k)|^2 - |X_y(k)|^2 | / w^2
+11110000
+11101000
+11100100
+11010100
+11010010
+11001100
+10101010

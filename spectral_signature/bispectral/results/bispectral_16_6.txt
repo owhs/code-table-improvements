@@ -1,0 +1,19 @@
+n=16 w=6: 504 translation classes  [0.0s]
+classes: P (power spectrum) 246 | Tm (triple, mirror-blind) 280 | T (triple, shift-only) 504  [0.0s]
+
+ theta |                      P |                     Tm |                      T
+  0.05 |    246    opt (of 246) |    280    opt (of 280) |    504    opt (of 504)
+  0.10 |    246    opt (of 246) |    280    opt (of 280) |    504    opt (of 504)
+  0.20 |    246    opt (of 246) |    277    opt (of 280) |    497    opt (of 504)
+  0.40 |    108    opt (of 246) |    116    opt (of 280) |    177    opt (of 504)
+  P: distance median 0.940, max 1.920
+  Tm: distance median 0.833, max 1.500
+  T: distance median 0.833, max 1.500
+
+NOISE DEMO (K=12, farthest-point codes, nearest-signature decoding on the empirical signature of x + sigma*noise; chance 0.92):
+ sigma |        P       Tm        T   (code min distance: P 0.916, Tm 0.889, T 0.889)
+  0.05 |    0.000    0.000    0.000
+  0.10 |    0.000    0.000    0.000
+  0.20 |    0.005    0.007    0.003
+  0.30 |    0.110    0.052    0.048
+done [11.7s]

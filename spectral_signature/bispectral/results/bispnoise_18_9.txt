@@ -1,0 +1,30 @@
+n=18 w=9: classes P 701, Tm 1387
+code min distances: P 0.637  Tm 0.609
+
+symbol error rate, K=12, 500 trials per cell (chance 0.92); noise = random coloured PSD (unknown) of per-sample std sigma
+
+    noise    mode   M  sigma |       P      Tm
+    white   blind   1   0.30 |   0.046   0.068
+    white   blind   1   0.60 |   0.442   0.382
+    white   blind   1   1.00 |   0.774   0.696
+    white   blind   8   0.30 |   0.000   0.000
+    white   blind   8   0.60 |   0.092   0.006
+    white   blind   8   1.00 |   0.716   0.276
+    white  oracle   1   0.30 |   0.040   0.048
+    white  oracle   1   0.60 |   0.438   0.350
+    white  oracle   1   1.00 |   0.770   0.694
+    white  oracle   8   0.30 |   0.000   0.000
+    white  oracle   8   0.60 |   0.078   0.014
+    white  oracle   8   1.00 |   0.702   0.234
+ coloured   blind   1   0.30 |   0.010   0.098
+ coloured   blind   1   0.60 |   0.216   0.506
+ coloured   blind   1   1.00 |   0.510   0.740
+ coloured   blind   8   0.30 |   0.000   0.006
+ coloured   blind   8   0.60 |   0.012   0.198
+ coloured   blind   8   1.00 |   0.206   0.674
+ coloured  oracle   1   0.30 |   0.012   0.094
+ coloured  oracle   1   0.60 |   0.188   0.464
+ coloured  oracle   1   1.00 |   0.446   0.716
+ coloured  oracle   8   0.30 |   0.000   0.002
+ coloured  oracle   8   0.60 |   0.018   0.070
+ coloured  oracle   8   1.00 |   0.204   0.408

@@ -1,0 +1,112 @@
+{
+ "n": 16,
+ "w": 6,
+ "translation_classes": 504,
+ "classes": {
+  "P": 246,
+  "Tm": 280,
+  "T": 504
+ },
+ "capacity": {
+  "P": {
+   "0.05": {
+    "size": 246,
+    "optimal": true,
+    "upper": 246,
+    "classes": 246
+   },
+   "0.1": {
+    "size": 246,
+    "optimal": true,
+    "upper": 246,
+    "classes": 246
+   },
+   "0.2": {
+    "size": 246,
+    "optimal": true,
+    "upper": 246,
+    "classes": 246
+   },
+   "0.4": {
+    "size": 108,
+    "optimal": true,
+    "upper": 108,
+    "classes": 246
+   }
+  },
+  "Tm": {
+   "0.05": {
+    "size": 280,
+    "optimal": true,
+    "upper": 280,
+    "classes": 280
+   },
+   "0.1": {
+    "size": 280,
+    "optimal": true,
+    "upper": 280,
+    "classes": 280
+   },
+   "0.2": {
+    "size": 277,
+    "optimal": true,
+    "upper": 277,
+    "classes": 280
+   },
+   "0.4": {
+    "size": 116,
+    "optimal": true,
+    "upper": 116,
+    "classes": 280
+   }
+  },
+  "T": {
+   "0.05": {
+    "size": 504,
+    "optimal": true,
+    "upper": 504,
+    "classes": 504
+   },
+   "0.1": {
+    "size": 504,
+    "optimal": true,
+    "upper": 504,
+    "classes": 504
+   },
+   "0.2": {
+    "size": 497,
+    "optimal": true,
+    "upper": 497,
+    "classes": 504
+   },
+   "0.4": {
+    "size": 177,
+    "optimal": true,
+    "upper": 177,
+    "classes": 504
+   }
+  }
+ },
+ "ser": {
+  "0.05": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "0.1": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "0.2": [
+   0.005,
+   0.0075,
+   0.0025
+  ],
+  "0.3": [
+   0.11,
+   0.0525,
+   0.0475
+  ]
+ }
+}

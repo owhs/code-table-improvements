@@ -1,0 +1,261 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+ <META http-equiv=Content-Type content="text/html; charset=utf-8">
+ <TITLE>Spectral-signature codes: codes for intensity-only receivers</TITLE>
+</HEAD>
+<BODY>
+<H2>Spectral-signature codes: tables of bounds</H2>
+<P>Computed 2026-10-14 (exact where marked). Files: <A HREF="README.md">README</A>, <A HREF="codes.json">codes.json</A>, <A HREF="table_classes.csv">table_classes.csv</A>,
+<A HREF="table_maxcode.csv">table_maxcode.csv</A>, <A HREF="check_codes.py">check_codes.py</A>, <A HREF="related_work.md">related work</A>.</P>
+
+<H3>1. The problem</H3>
+<P>A word x is a binary vector of length n and weight w. A receiver that can only measure intensities sees the power signature
+P<sub>x</sub>(k) = |&sum;<sub>j</sub> x<sub>j</sub> e<sup>-2&pi;ijk/n</sup>|<sup>2</sup>, k = 1..&lfloor;n/2&rfloor;
+(equivalently the cyclic autocorrelation, i.e. the multiset of cyclic differences, of the support). Cyclic shifts, reflections and homometric (Z-related)
+partners have identical signatures; for w = n/2 a word and its complement do too. Define the normalised spectral distance
+d(x,y) = &sum;<sub>k</sub> |P<sub>x</sub>(k) - P<sub>y</sub>(k)| / w<sup>2</sup>.
+A <I>spectral code</I> C(n,w,&theta;) is a set of weight-w words with pairwise d &ge; &theta;. Let S(n,w,&theta;) be the largest size.
+S(n,w,&theta;) &le; c(n,w), the number of distinct signatures; equality holds exactly for &theta; &le; &delta;(n,w), the smallest distance between two classes.
+The ordinary constant-weight code problem A(n,d,w) uses Hamming distance and counts shifts as different words; here a shift-closed code of any size is worthless.</P>
+
+<H3>2. Table of c(n,w): the number of distinct power signatures (weight w, length n)</H3>
+<P>Values with * are smaller than the number of bracelets (binary necklaces up to rotation and reflection) because of homometric merging; hover for the count.
+c(n,w) = c(n,n-w); only w &le; n/2 is shown. Exact integer autocorrelation keys. w = 2: n/2 classes (floor).</P>
+<TABLE BORDER="1"><TR><TD>n \ w</TD><TD> 2 </TD><TD> 3 </TD><TD> 4 </TD><TD> 5 </TD><TD> 6 </TD><TD> 7 </TD><TD> 8 </TD><TD> 9 </TD><TD> 10 </TD><TD> 11 </TD><TD> 12 </TD><TD> 13 </TD><TD> 14 </TD><TD> 15 </TD></TR>
+<TR><TD>4</TD><TD>2</TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD></TR>
+<TR><TD>5</TD><TD>2</TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD></TR>
+<TR><TD>6</TD><TD>3</TD><TD>3</TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD></TR>
+<TR><TD>7</TD><TD>3</TD><TD>4</TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD></TR>
+<TR><TD>8</TD><TD>4</TD><TD>5</TD><TD><span title="8 bracelets, 1 merged by homometry">7*</span></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD></TR>
+<TR><TD>9</TD><TD>4</TD><TD>7</TD><TD>10</TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD></TR>
+<TR><TD>10</TD><TD>5</TD><TD>8</TD><TD>16</TD><TD><span title="16 bracelets, 3 merged by homometry">13*</span></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD></TR>
+<TR><TD>11</TD><TD>5</TD><TD>10</TD><TD>20</TD><TD>26</TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD></TR>
+<TR><TD>12</TD><TD>6</TD><TD>12</TD><TD><span title="29 bracelets, 1 merged by homometry">28*</span></TD><TD><span title="38 bracelets, 3 merged by homometry">35*</span></TD><TD><span title="50 bracelets, 15 merged by homometry">35*</span></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD></TR>
+<TR><TD>13</TD><TD>6</TD><TD>14</TD><TD><span title="35 bracelets, 1 merged by homometry">34*</span></TD><TD>57</TD><TD><span title="76 bracelets, 2 merged by homometry">74*</span></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD></TR>
+<TR><TD>14</TD><TD>7</TD><TD>16</TD><TD>47</TD><TD><span title="79 bracelets, 6 merged by homometry">73*</span></TD><TD><span title="126 bracelets, 6 merged by homometry">120*</span></TD><TD><span title="133 bracelets, 48 merged by homometry">85*</span></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD></TR>
+<TR><TD>15</TD><TD>7</TD><TD>19</TD><TD>56</TD><TD><span title="111 bracelets, 5 merged by homometry">106*</span></TD><TD><span title="185 bracelets, 25 merged by homometry">160*</span></TD><TD><span title="232 bracelets, 10 merged by homometry">222*</span></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD></TR>
+<TR><TD>16</TD><TD>8</TD><TD>21</TD><TD><span title="72 bracelets, 2 merged by homometry">70*</span></TD><TD><span title="147 bracelets, 10 merged by homometry">137*</span></TD><TD><span title="280 bracelets, 34 merged by homometry">246*</span></TD><TD><span title="375 bracelets, 48 merged by homometry">327*</span></TD><TD><span title="440 bracelets, 186 merged by homometry">254*</span></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD></TR>
+<TR><TD>17</TD><TD>8</TD><TD>24</TD><TD>84</TD><TD>196</TD><TD><span title="392 bracelets, 16 merged by homometry">376*</span></TD><TD><span title="600 bracelets, 24 merged by homometry">576*</span></TD><TD><span title="750 bracelets, 52 merged by homometry">698*</span></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD></TR>
+<TR><TD>18</TD><TD>9</TD><TD>27</TD><TD>104</TD><TD><span title="252 bracelets, 15 merged by homometry">237*</span></TD><TD><span title="561 bracelets, 68 merged by homometry">493*</span></TD><TD><span title="912 bracelets, 150 merged by homometry">762*</span></TD><TD><span title="1282 bracelets, 161 merged by homometry">1121*</span></TD><TD><span title="1387 bracelets, 686 merged by homometry">701*</span></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD></TR>
+<TR><TD>19</TD><TD>9</TD><TD>30</TD><TD>120</TD><TD>324</TD><TD><span title="756 bracelets, 21 merged by homometry">735*</span></TD><TD><span title="1368 bracelets, 57 merged by homometry">1311*</span></TD><TD><span title="2052 bracelets, 90 merged by homometry">1962*</span></TD><TD><span title="2494 bracelets, 156 merged by homometry">2338*</span></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD></TR>
+<TR><TD>20</TD><TD>10</TD><TD>33</TD><TD><span title="145 bracelets, 2 merged by homometry">143*</span></TD><TD><span title="406 bracelets, 22 merged by homometry">384*</span></TD><TD><span title="1032 bracelets, 100 merged by homometry">932*</span></TD><TD><span title="1980 bracelets, 202 merged by homometry">1778*</span></TD><TD><span title="3260 bracelets, 611 merged by homometry">2649*</span></TD><TD><span title="4262 bracelets, 611 merged by homometry">3651*</span></TD><TD><span title="4752 bracelets, 2375 merged by homometry">2377*</span></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD></TR>
+<TR><TD>21</TD><TD>10</TD><TD>37</TD><TD>165</TD><TD>507</TD><TD><span title="1353 bracelets, 96 merged by homometry">1257*</span></TD><TD><span title="2829 bracelets, 220 merged by homometry">2609*</span></TD><TD><span title="4950 bracelets, 288 merged by homometry">4662*</span></TD><TD><span title="7105 bracelets, 1099 merged by homometry">6006*</span></TD><TD><span title="8524 bracelets, 658 merged by homometry">7866*</span></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD></TR>
+<TR><TD>22</TD><TD>11</TD><TD>40</TD><TD>195</TD><TD><span title="621 bracelets, 20 merged by homometry">601*</span></TD><TD><span title="1782 bracelets, 65 merged by homometry">1717*</span></TD><TD><span title="3936 bracelets, 360 merged by homometry">3576*</span></TD><TD><span title="7440 bracelets, 610 merged by homometry">6830*</span></TD><TD><span title="11410 bracelets, 1550 merged by homometry">9860*</span></TD><TD><span title="14938 bracelets, 1670 merged by homometry">13268*</span></TD><TD><span title="16159 bracelets, 8215 merged by homometry">7944*</span></TD><TD></TD><TD></TD><TD></TD><TD></TD></TR>
+<TR><TD>23</TD><TD>11</TD><TD>44</TD><TD>220</TD><TD>759</TD><TD><span title="2277 bracelets, 33 merged by homometry">2244*</span></TD><TD><span title="5412 bracelets, 110 merged by homometry">5302*</span></TD><TD><span title="10824 bracelets, 429 merged by homometry">10395*</span></TD><TD><span title="17930 bracelets, 825 merged by homometry">17105*</span></TD><TD><span title="25102 bracelets, 1144 merged by homometry">23958*</span></TD><TD><span title="29624 bracelets, 1408 merged by homometry">28216*</span></TD><TD></TD><TD></TD><TD></TD><TD></TD></TR>
+<TR><TD>24</TD><TD>12</TD><TD>48</TD><TD><span title="256 bracelets, 3 merged by homometry">253*</span></TD><TD><span title="913 bracelets, 32 merged by homometry">881*</span></TD><TD><span title="2920 bracelets, 285 merged by homometry">2635*</span></TD><TD><span title="7293 bracelets, 719 merged by homometry">6574*</span></TD><TD><span title="15581 bracelets, 2737 merged by homometry">12844*</span></TD><TD><span title="27407 bracelets, 5908 merged by homometry">21499*</span></TD><TD><span title="41272 bracelets, 8930 merged by homometry">32342*</span></TD><TD><span title="52234 bracelets, 9845 merged by homometry">42389*</span></TD><TD><span title="56822 bracelets, 31602 merged by homometry">25220*</span></TD><TD></TD><TD></TD><TD></TD></TR>
+<TR><TD>25</TD><TD>12</TD><TD>52</TD><TD>286</TD><TD><span title="1096 bracelets, 10 merged by homometry">1086*</span></TD><TD><span title="3652 bracelets, 30 merged by homometry">3622*</span></TD><TD><span title="9724 bracelets, 150 merged by homometry">9574*</span></TD><TD><span title="21879 bracelets, 490 merged by homometry">21389*</span></TD><TD><span title="41107 bracelets, 1525 merged by homometry">39582*</span></TD><TD><span title="65772 bracelets, 6640 merged by homometry">59132*</span></TD><TD><span title="89544 bracelets, 3790 merged by homometry">85754*</span></TD><TD><span title="104468 bracelets, 4830 merged by homometry">99638*</span></TD><TD></TD><TD></TD><TD></TD></TR>
+<TR><TD>26</TD><TD>13</TD><TD>56</TD><TD><span title="328 bracelets, 1 merged by homometry">327*</span></TD><TD><span title="1298 bracelets, 30 merged by homometry">1268*</span></TD><TD><span title="4576 bracelets, 134 merged by homometry">4442*</span></TD><TD><span title="12760 bracelets, 694 merged by homometry">12066*</span></TD><TD><span title="30415 bracelets, 1663 merged by homometry">28752*</span></TD><TD><span title="60335 bracelets, 5371 merged by homometry">54964*</span></TD><TD><span title="102817 bracelets, 8398 merged by homometry">94419*</span></TD><TD><span title="148976 bracelets, 16810 merged by homometry">132166*</span></TD><TD><span title="186616 bracelets, 18139 merged by homometry">168477*</span></TD><TD><span title="200474 bracelets, 104564 merged by homometry">95910*</span></TD><TD></TD><TD></TD></TR>
+<TR><TD>27</TD><TD>13</TD><TD>61</TD><TD>364</TD><TD>1534</TD><TD><span title="5626 bracelets, 186 merged by homometry">5440*</span></TD><TD><span title="16588 bracelets, 303 merged by homometry">16285*</span></TD><TD><span title="41470 bracelets, 1149 merged by homometry">40321*</span></TD><TD><span title="87154 bracelets, 7965 merged by homometry">79189*</span></TD><TD><span title="156871 bracelets, 6975 merged by homometry">149896*</span></TD><TD><span title="242086 bracelets, 11934 merged by homometry">230152*</span></TD><TD><span title="322786 bracelets, 38487 merged by homometry">284299*</span></TD><TD><span title="372308 bracelets, 21031 merged by homometry">351277*</span></TD><TD></TD><TD></TD></TR>
+<TR><TD>28</TD><TD>14</TD><TD>65</TD><TD><span title="413 bracelets, 3 merged by homometry">410*</span></TD><TD><span title="1794 bracelets, 30 merged by homometry">1764*</span></TD><TD><span title="6916 bracelets, 330 merged by homometry">6586*</span></TD><TD><span title="21287 bracelets, 1012 merged by homometry">20275*</span></TD><TD><span title="56021 bracelets, 4862 merged by homometry">51159*</span></TD><TD><span title="123695 bracelets, 7870 merged by homometry">115825*</span></TD><TD><span title="235378 bracelets, 28478 merged by homometry">206900*</span></TD><TD><span title="384111 bracelets, 32058 merged by homometry">352053*</span></TD><TD><span title="544802 bracelets, 86991 merged by homometry">457811*</span></TD><TD><span title="669468 bracelets, 63590 merged by homometry">605878*</span></TD><TD><span title="718146 bracelets, 385846 merged by homometry">332300*</span></TD><TD></TD></TR>
+<TR><TD>29</TD><TD>14</TD><TD>70</TD><TD>455</TD><TD>2093</TD><TD><span title="8372 bracelets, 42 merged by homometry">8330*</span></TD><TD><span title="27092 bracelets, 210 merged by homometry">26882*</span></TD><TD><span title="74503 bracelets, 910 merged by homometry">73593*</span></TD><TD><span title="173173 bracelets, 3136 merged by homometry">170037*</span></TD><TD><span title="346346 bracelets, 6566 merged by homometry">339780*</span></TD><TD><span title="597506 bracelets, 12950 merged by homometry">584556*</span></TD><TD><span title="896259 bracelets, 21728 merged by homometry">874531*</span></TD><TD><span title="1171569 bracelets, 28014 merged by homometry">1143555*</span></TD><TD><span title="1338936 bracelets, 36248 merged by homometry">1302688*</span></TD><TD></TD></TR>
+<TR><TD>30</TD><TD>15</TD><TD>75</TD><TD>511</TD><TD><span title="2421 bracelets, 59 merged by homometry">2362*</span></TD><TD><span title="10133 bracelets, 432 merged by homometry">9701*</span></TD><TD><span title="34112 bracelets, 1708 merged by homometry">32404*</span></TD><TD><span title="98254 bracelets, 5006 merged by homometry">93248*</span></TD><TD><span title="238957 bracelets, 25577 merged by homometry">213380*</span></TD><TD><span title="502303 bracelets, 46627 merged by homometry">455676*</span></TD><TD><span title="911456 bracelets, 96456 merged by homometry">815000*</span></TD><TD><span title="1444147 bracelets, 200795 merged by homometry">1243352*</span></TD><TD><span title="1997499 bracelets, 250425 merged by homometry">1747074*</span></TD><TD><span title="2427036 bracelets, 254419 merged by homometry">2172617*</span></TD><TD><span title="2587018 bracelets, 1422193 merged by homometry">1164825*</span></TD></TR>
+</TABLE>
+
+<H3>3. Tables of S(n,w,&theta;): the largest spectral code</H3>
+<P>Entries are exact (proven by integer programming) unless written lb-ub. Bold = the code is smaller than the full alphabet c(n,w) (the threshold bites).
+Each entry links to a file with one codeword per line (a 0/1 matrix). &mdash; = more than 3500 classes, not computed.</P>
+<H4>&theta; = 0.05</H4><TABLE BORDER="1"><TR><TD>n \ w</TD><TD> 3 </TD><TD> 4 </TD><TD> 5 </TD><TD> 6 </TD><TD> 7 </TD><TD> 8 </TD><TD> 9 </TD><TD> 10 </TD></TR>
+<TR><TD>6</TD><TD><A HREF="codes/n6_w3_d0.05.txt">3</A></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD></TR>
+<TR><TD>7</TD><TD><A HREF="codes/n7_w3_d0.05.txt">4</A></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD></TR>
+<TR><TD>8</TD><TD><A HREF="codes/n8_w3_d0.05.txt">5</A></TD><TD><A HREF="codes/n8_w4_d0.05.txt">7</A></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD></TR>
+<TR><TD>9</TD><TD><A HREF="codes/n9_w3_d0.05.txt">7</A></TD><TD><A HREF="codes/n9_w4_d0.05.txt">10</A></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD></TR>
+<TR><TD>10</TD><TD><A HREF="codes/n10_w3_d0.05.txt">8</A></TD><TD><A HREF="codes/n10_w4_d0.05.txt">16</A></TD><TD><A HREF="codes/n10_w5_d0.05.txt">13</A></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD></TR>
+<TR><TD>11</TD><TD><A HREF="codes/n11_w3_d0.05.txt">10</A></TD><TD><A HREF="codes/n11_w4_d0.05.txt">20</A></TD><TD><A HREF="codes/n11_w5_d0.05.txt">26</A></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD></TR>
+<TR><TD>12</TD><TD><A HREF="codes/n12_w3_d0.05.txt">12</A></TD><TD><A HREF="codes/n12_w4_d0.05.txt">28</A></TD><TD><A HREF="codes/n12_w5_d0.05.txt">35</A></TD><TD><A HREF="codes/n12_w6_d0.05.txt">35</A></TD><TD></TD><TD></TD><TD></TD><TD></TD></TR>
+<TR><TD>13</TD><TD><A HREF="codes/n13_w3_d0.05.txt">14</A></TD><TD><A HREF="codes/n13_w4_d0.05.txt">34</A></TD><TD><A HREF="codes/n13_w5_d0.05.txt">57</A></TD><TD><A HREF="codes/n13_w6_d0.05.txt">74</A></TD><TD></TD><TD></TD><TD></TD><TD></TD></TR>
+<TR><TD>14</TD><TD><A HREF="codes/n14_w3_d0.05.txt">16</A></TD><TD><A HREF="codes/n14_w4_d0.05.txt">47</A></TD><TD><A HREF="codes/n14_w5_d0.05.txt">73</A></TD><TD><A HREF="codes/n14_w6_d0.05.txt">120</A></TD><TD><A HREF="codes/n14_w7_d0.05.txt">85</A></TD><TD></TD><TD></TD><TD></TD></TR>
+<TR><TD>15</TD><TD><A HREF="codes/n15_w3_d0.05.txt">19</A></TD><TD><A HREF="codes/n15_w4_d0.05.txt">56</A></TD><TD><A HREF="codes/n15_w5_d0.05.txt">106</A></TD><TD><A HREF="codes/n15_w6_d0.05.txt">160</A></TD><TD><A HREF="codes/n15_w7_d0.05.txt">222</A></TD><TD></TD><TD></TD><TD></TD></TR>
+<TR><TD>16</TD><TD><A HREF="codes/n16_w3_d0.05.txt">21</A></TD><TD><A HREF="codes/n16_w4_d0.05.txt">70</A></TD><TD><A HREF="codes/n16_w5_d0.05.txt">137</A></TD><TD><A HREF="codes/n16_w6_d0.05.txt">246</A></TD><TD><A HREF="codes/n16_w7_d0.05.txt">327</A></TD><TD><A HREF="codes/n16_w8_d0.05.txt">254</A></TD><TD></TD><TD></TD></TR>
+<TR><TD>17</TD><TD><A HREF="codes/n17_w3_d0.05.txt">24</A></TD><TD><A HREF="codes/n17_w4_d0.05.txt">84</A></TD><TD><A HREF="codes/n17_w5_d0.05.txt">196</A></TD><TD><A HREF="codes/n17_w6_d0.05.txt">376</A></TD><TD><A HREF="codes/n17_w7_d0.05.txt">576</A></TD><TD><A HREF="codes/n17_w8_d0.05.txt">698</A></TD><TD></TD><TD></TD></TR>
+<TR><TD>18</TD><TD><A HREF="codes/n18_w3_d0.05.txt">27</A></TD><TD><A HREF="codes/n18_w4_d0.05.txt">104</A></TD><TD><A HREF="codes/n18_w5_d0.05.txt">237</A></TD><TD><A HREF="codes/n18_w6_d0.05.txt">493</A></TD><TD><A HREF="codes/n18_w7_d0.05.txt">762</A></TD><TD><A HREF="codes/n18_w8_d0.05.txt">1121</A></TD><TD><A HREF="codes/n18_w9_d0.05.txt">701</A></TD><TD></TD></TR>
+<TR><TD>19</TD><TD><A HREF="codes/n19_w3_d0.05.txt">30</A></TD><TD><A HREF="codes/n19_w4_d0.05.txt">120</A></TD><TD><A HREF="codes/n19_w5_d0.05.txt">324</A></TD><TD><A HREF="codes/n19_w6_d0.05.txt">735</A></TD><TD><A HREF="codes/n19_w7_d0.05.txt">1311</A></TD><TD><A HREF="codes/n19_w8_d0.05.txt">1962</A></TD><TD><A HREF="codes/n19_w9_d0.05.txt">2338</A></TD><TD></TD></TR>
+<TR><TD>20</TD><TD><A HREF="codes/n20_w3_d0.05.txt">33</A></TD><TD><A HREF="codes/n20_w4_d0.05.txt">143</A></TD><TD><A HREF="codes/n20_w5_d0.05.txt">384</A></TD><TD><A HREF="codes/n20_w6_d0.05.txt">932</A></TD><TD><A HREF="codes/n20_w7_d0.05.txt">1778</A></TD><TD><A HREF="codes/n20_w8_d0.05.txt">2649</A></TD><TD>&mdash;</TD><TD><A HREF="codes/n20_w10_d0.05.txt">2377</A></TD></TR>
+</TABLE><H4>&theta; = 0.10</H4><TABLE BORDER="1"><TR><TD>n \ w</TD><TD> 3 </TD><TD> 4 </TD><TD> 5 </TD><TD> 6 </TD><TD> 7 </TD><TD> 8 </TD><TD> 9 </TD><TD> 10 </TD></TR>
+<TR><TD>6</TD><TD><A HREF="codes/n6_w3_d0.10.txt">3</A></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD></TR>
+<TR><TD>7</TD><TD><A HREF="codes/n7_w3_d0.10.txt">4</A></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD></TR>
+<TR><TD>8</TD><TD><A HREF="codes/n8_w3_d0.10.txt">5</A></TD><TD><A HREF="codes/n8_w4_d0.10.txt">7</A></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD></TR>
+<TR><TD>9</TD><TD><A HREF="codes/n9_w3_d0.10.txt">7</A></TD><TD><A HREF="codes/n9_w4_d0.10.txt">10</A></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD></TR>
+<TR><TD>10</TD><TD><A HREF="codes/n10_w3_d0.10.txt">8</A></TD><TD><A HREF="codes/n10_w4_d0.10.txt">16</A></TD><TD><A HREF="codes/n10_w5_d0.10.txt">13</A></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD></TR>
+<TR><TD>11</TD><TD><A HREF="codes/n11_w3_d0.10.txt">10</A></TD><TD><A HREF="codes/n11_w4_d0.10.txt">20</A></TD><TD><A HREF="codes/n11_w5_d0.10.txt">26</A></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD></TR>
+<TR><TD>12</TD><TD><A HREF="codes/n12_w3_d0.10.txt">12</A></TD><TD><A HREF="codes/n12_w4_d0.10.txt">28</A></TD><TD><A HREF="codes/n12_w5_d0.10.txt">35</A></TD><TD><A HREF="codes/n12_w6_d0.10.txt">35</A></TD><TD></TD><TD></TD><TD></TD><TD></TD></TR>
+<TR><TD>13</TD><TD><A HREF="codes/n13_w3_d0.10.txt">14</A></TD><TD><A HREF="codes/n13_w4_d0.10.txt">34</A></TD><TD><A HREF="codes/n13_w5_d0.10.txt">57</A></TD><TD><A HREF="codes/n13_w6_d0.10.txt">74</A></TD><TD></TD><TD></TD><TD></TD><TD></TD></TR>
+<TR><TD>14</TD><TD><A HREF="codes/n14_w3_d0.10.txt">16</A></TD><TD><A HREF="codes/n14_w4_d0.10.txt">47</A></TD><TD><A HREF="codes/n14_w5_d0.10.txt">73</A></TD><TD><A HREF="codes/n14_w6_d0.10.txt">120</A></TD><TD><A HREF="codes/n14_w7_d0.10.txt">85</A></TD><TD></TD><TD></TD><TD></TD></TR>
+<TR><TD>15</TD><TD><A HREF="codes/n15_w3_d0.10.txt">19</A></TD><TD><A HREF="codes/n15_w4_d0.10.txt">56</A></TD><TD><A HREF="codes/n15_w5_d0.10.txt">106</A></TD><TD><A HREF="codes/n15_w6_d0.10.txt">160</A></TD><TD><A HREF="codes/n15_w7_d0.10.txt">222</A></TD><TD></TD><TD></TD><TD></TD></TR>
+<TR><TD>16</TD><TD><A HREF="codes/n16_w3_d0.10.txt">21</A></TD><TD><A HREF="codes/n16_w4_d0.10.txt">70</A></TD><TD><A HREF="codes/n16_w5_d0.10.txt">137</A></TD><TD><A HREF="codes/n16_w6_d0.10.txt">246</A></TD><TD><A HREF="codes/n16_w7_d0.10.txt">327</A></TD><TD><A HREF="codes/n16_w8_d0.10.txt">254</A></TD><TD></TD><TD></TD></TR>
+<TR><TD>17</TD><TD><A HREF="codes/n17_w3_d0.10.txt">24</A></TD><TD><A HREF="codes/n17_w4_d0.10.txt">84</A></TD><TD><A HREF="codes/n17_w5_d0.10.txt">196</A></TD><TD><A HREF="codes/n17_w6_d0.10.txt">376</A></TD><TD><A HREF="codes/n17_w7_d0.10.txt">576</A></TD><TD><A HREF="codes/n17_w8_d0.10.txt">698</A></TD><TD></TD><TD></TD></TR>
+<TR><TD>18</TD><TD><A HREF="codes/n18_w3_d0.10.txt">27</A></TD><TD><A HREF="codes/n18_w4_d0.10.txt">104</A></TD><TD><A HREF="codes/n18_w5_d0.10.txt">237</A></TD><TD><A HREF="codes/n18_w6_d0.10.txt">493</A></TD><TD><A HREF="codes/n18_w7_d0.10.txt">762</A></TD><TD><A HREF="codes/n18_w8_d0.10.txt">1121</A></TD><TD><A HREF="codes/n18_w9_d0.10.txt">701</A></TD><TD></TD></TR>
+<TR><TD>19</TD><TD><A HREF="codes/n19_w3_d0.10.txt">30</A></TD><TD><A HREF="codes/n19_w4_d0.10.txt">120</A></TD><TD><A HREF="codes/n19_w5_d0.10.txt">324</A></TD><TD><A HREF="codes/n19_w6_d0.10.txt">735</A></TD><TD><A HREF="codes/n19_w7_d0.10.txt">1311</A></TD><TD><A HREF="codes/n19_w8_d0.10.txt">1962</A></TD><TD><A HREF="codes/n19_w9_d0.10.txt">2338</A></TD><TD></TD></TR>
+<TR><TD>20</TD><TD><A HREF="codes/n20_w3_d0.10.txt">33</A></TD><TD><A HREF="codes/n20_w4_d0.10.txt">143</A></TD><TD><A HREF="codes/n20_w5_d0.10.txt">384</A></TD><TD><A HREF="codes/n20_w6_d0.10.txt">932</A></TD><TD><A HREF="codes/n20_w7_d0.10.txt">1778</A></TD><TD><A HREF="codes/n20_w8_d0.10.txt">2649</A></TD><TD>&mdash;</TD><TD><A HREF="codes/n20_w10_d0.10.txt">2377</A></TD></TR>
+</TABLE><H4>&theta; = 0.20</H4><TABLE BORDER="1"><TR><TD>n \ w</TD><TD> 3 </TD><TD> 4 </TD><TD> 5 </TD><TD> 6 </TD><TD> 7 </TD><TD> 8 </TD><TD> 9 </TD><TD> 10 </TD></TR>
+<TR><TD>6</TD><TD><A HREF="codes/n6_w3_d0.20.txt">3</A></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD></TR>
+<TR><TD>7</TD><TD><A HREF="codes/n7_w3_d0.20.txt">4</A></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD></TR>
+<TR><TD>8</TD><TD><A HREF="codes/n8_w3_d0.20.txt">5</A></TD><TD><A HREF="codes/n8_w4_d0.20.txt">7</A></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD></TR>
+<TR><TD>9</TD><TD><A HREF="codes/n9_w3_d0.20.txt">7</A></TD><TD><A HREF="codes/n9_w4_d0.20.txt">10</A></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD></TR>
+<TR><TD>10</TD><TD><A HREF="codes/n10_w3_d0.20.txt">8</A></TD><TD><A HREF="codes/n10_w4_d0.20.txt">16</A></TD><TD><A HREF="codes/n10_w5_d0.20.txt">13</A></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD></TR>
+<TR><TD>11</TD><TD><A HREF="codes/n11_w3_d0.20.txt">10</A></TD><TD><A HREF="codes/n11_w4_d0.20.txt">20</A></TD><TD><A HREF="codes/n11_w5_d0.20.txt">26</A></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD></TR>
+<TR><TD>12</TD><TD><A HREF="codes/n12_w3_d0.20.txt">12</A></TD><TD><A HREF="codes/n12_w4_d0.20.txt">28</A></TD><TD><A HREF="codes/n12_w5_d0.20.txt">35</A></TD><TD><B><A HREF="codes/n12_w6_d0.20.txt">29</A></B></TD><TD></TD><TD></TD><TD></TD><TD></TD></TR>
+<TR><TD>13</TD><TD><A HREF="codes/n13_w3_d0.20.txt">14</A></TD><TD><A HREF="codes/n13_w4_d0.20.txt">34</A></TD><TD><A HREF="codes/n13_w5_d0.20.txt">57</A></TD><TD><A HREF="codes/n13_w6_d0.20.txt">74</A></TD><TD></TD><TD></TD><TD></TD><TD></TD></TR>
+<TR><TD>14</TD><TD><A HREF="codes/n14_w3_d0.20.txt">16</A></TD><TD><A HREF="codes/n14_w4_d0.20.txt">47</A></TD><TD><A HREF="codes/n14_w5_d0.20.txt">73</A></TD><TD><A HREF="codes/n14_w6_d0.20.txt">120</A></TD><TD><A HREF="codes/n14_w7_d0.20.txt">85</A></TD><TD></TD><TD></TD><TD></TD></TR>
+<TR><TD>15</TD><TD><A HREF="codes/n15_w3_d0.20.txt">19</A></TD><TD><A HREF="codes/n15_w4_d0.20.txt">56</A></TD><TD><A HREF="codes/n15_w5_d0.20.txt">106</A></TD><TD><A HREF="codes/n15_w6_d0.20.txt">160</A></TD><TD><A HREF="codes/n15_w7_d0.20.txt">222</A></TD><TD></TD><TD></TD><TD></TD></TR>
+<TR><TD>16</TD><TD><A HREF="codes/n16_w3_d0.20.txt">21</A></TD><TD><A HREF="codes/n16_w4_d0.20.txt">70</A></TD><TD><A HREF="codes/n16_w5_d0.20.txt">137</A></TD><TD><A HREF="codes/n16_w6_d0.20.txt">246</A></TD><TD><A HREF="codes/n16_w7_d0.20.txt">327</A></TD><TD><B><A HREF="codes/n16_w8_d0.20.txt">172</A></B></TD><TD></TD><TD></TD></TR>
+<TR><TD>17</TD><TD><A HREF="codes/n17_w3_d0.20.txt">24</A></TD><TD><A HREF="codes/n17_w4_d0.20.txt">84</A></TD><TD><A HREF="codes/n17_w5_d0.20.txt">196</A></TD><TD><A HREF="codes/n17_w6_d0.20.txt">376</A></TD><TD><A HREF="codes/n17_w7_d0.20.txt">576</A></TD><TD><A HREF="codes/n17_w8_d0.20.txt">698</A></TD><TD></TD><TD></TD></TR>
+<TR><TD>18</TD><TD><A HREF="codes/n18_w3_d0.20.txt">27</A></TD><TD><A HREF="codes/n18_w4_d0.20.txt">104</A></TD><TD><A HREF="codes/n18_w5_d0.20.txt">237</A></TD><TD><A HREF="codes/n18_w6_d0.20.txt">493</A></TD><TD><A HREF="codes/n18_w7_d0.20.txt">762</A></TD><TD><A HREF="codes/n18_w8_d0.20.txt">1121</A></TD><TD><B><A HREF="codes/n18_w9_d0.20.txt">300</A></B></TD><TD></TD></TR>
+<TR><TD>19</TD><TD><A HREF="codes/n19_w3_d0.20.txt">30</A></TD><TD><A HREF="codes/n19_w4_d0.20.txt">120</A></TD><TD><A HREF="codes/n19_w5_d0.20.txt">324</A></TD><TD><A HREF="codes/n19_w6_d0.20.txt">735</A></TD><TD><A HREF="codes/n19_w7_d0.20.txt">1311</A></TD><TD><A HREF="codes/n19_w8_d0.20.txt">1962</A></TD><TD><B><A HREF="codes/n19_w9_d0.20.txt">807-827</A></B></TD><TD></TD></TR>
+<TR><TD>20</TD><TD><A HREF="codes/n20_w3_d0.20.txt">33</A></TD><TD><A HREF="codes/n20_w4_d0.20.txt">143</A></TD><TD><A HREF="codes/n20_w5_d0.20.txt">384</A></TD><TD><A HREF="codes/n20_w6_d0.20.txt">932</A></TD><TD><A HREF="codes/n20_w7_d0.20.txt">1778</A></TD><TD><B><A HREF="codes/n20_w8_d0.20.txt">2041</A></B></TD><TD>&mdash;</TD><TD><B><A HREF="codes/n20_w10_d0.20.txt">734-780</A></B></TD></TR>
+</TABLE><H4>&theta; = 0.40</H4><TABLE BORDER="1"><TR><TD>n \ w</TD><TD> 3 </TD><TD> 4 </TD><TD> 5 </TD><TD> 6 </TD><TD> 7 </TD><TD> 8 </TD><TD> 9 </TD><TD> 10 </TD></TR>
+<TR><TD>6</TD><TD><A HREF="codes/n6_w3_d0.40.txt">3</A></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD></TR>
+<TR><TD>7</TD><TD><A HREF="codes/n7_w3_d0.40.txt">4</A></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD></TR>
+<TR><TD>8</TD><TD><A HREF="codes/n8_w3_d0.40.txt">5</A></TD><TD><B><A HREF="codes/n8_w4_d0.40.txt">6</A></B></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD></TR>
+<TR><TD>9</TD><TD><A HREF="codes/n9_w3_d0.40.txt">7</A></TD><TD><A HREF="codes/n9_w4_d0.40.txt">10</A></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD></TR>
+<TR><TD>10</TD><TD><A HREF="codes/n10_w3_d0.40.txt">8</A></TD><TD><A HREF="codes/n10_w4_d0.40.txt">16</A></TD><TD><B><A HREF="codes/n10_w5_d0.40.txt">8</A></B></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD></TR>
+<TR><TD>11</TD><TD><A HREF="codes/n11_w3_d0.40.txt">10</A></TD><TD><A HREF="codes/n11_w4_d0.40.txt">20</A></TD><TD><B><A HREF="codes/n11_w5_d0.40.txt">10</A></B></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD></TR>
+<TR><TD>12</TD><TD><A HREF="codes/n12_w3_d0.40.txt">12</A></TD><TD><A HREF="codes/n12_w4_d0.40.txt">28</A></TD><TD><B><A HREF="codes/n12_w5_d0.40.txt">20</A></B></TD><TD><B><A HREF="codes/n12_w6_d0.40.txt">11</A></B></TD><TD></TD><TD></TD><TD></TD><TD></TD></TR>
+<TR><TD>13</TD><TD><A HREF="codes/n13_w3_d0.40.txt">14</A></TD><TD><A HREF="codes/n13_w4_d0.40.txt">34</A></TD><TD><A HREF="codes/n13_w5_d0.40.txt">57</A></TD><TD><B><A HREF="codes/n13_w6_d0.40.txt">20</A></B></TD><TD></TD><TD></TD><TD></TD><TD></TD></TR>
+<TR><TD>14</TD><TD><A HREF="codes/n14_w3_d0.40.txt">16</A></TD><TD><A HREF="codes/n14_w4_d0.40.txt">47</A></TD><TD><A HREF="codes/n14_w5_d0.40.txt">73</A></TD><TD><B><A HREF="codes/n14_w6_d0.40.txt">41</A></B></TD><TD><B><A HREF="codes/n14_w7_d0.40.txt">20</A></B></TD><TD></TD><TD></TD><TD></TD></TR>
+<TR><TD>15</TD><TD><A HREF="codes/n15_w3_d0.40.txt">19</A></TD><TD><A HREF="codes/n15_w4_d0.40.txt">56</A></TD><TD><A HREF="codes/n15_w5_d0.40.txt">106</A></TD><TD><B><A HREF="codes/n15_w6_d0.40.txt">50</A></B></TD><TD><B><A HREF="codes/n15_w7_d0.40.txt">27</A></B></TD><TD></TD><TD></TD><TD></TD></TR>
+<TR><TD>16</TD><TD><A HREF="codes/n16_w3_d0.40.txt">21</A></TD><TD><A HREF="codes/n16_w4_d0.40.txt">70</A></TD><TD><A HREF="codes/n16_w5_d0.40.txt">137</A></TD><TD><B><A HREF="codes/n16_w6_d0.40.txt">108</A></B></TD><TD><B><A HREF="codes/n16_w7_d0.40.txt">56</A></B></TD><TD><B><A HREF="codes/n16_w8_d0.40.txt">36</A></B></TD><TD></TD><TD></TD></TR>
+<TR><TD>17</TD><TD><A HREF="codes/n17_w3_d0.40.txt">24</A></TD><TD><A HREF="codes/n17_w4_d0.40.txt">84</A></TD><TD><A HREF="codes/n17_w5_d0.40.txt">196</A></TD><TD><B><A HREF="codes/n17_w6_d0.40.txt">172</A></B></TD><TD><B><A HREF="codes/n17_w7_d0.40.txt">108-113</A></B></TD><TD><B><A HREF="codes/n17_w8_d0.40.txt">46-61</A></B></TD><TD></TD><TD></TD></TR>
+<TR><TD>18</TD><TD><A HREF="codes/n18_w3_d0.40.txt">27</A></TD><TD><A HREF="codes/n18_w4_d0.40.txt">104</A></TD><TD><A HREF="codes/n18_w5_d0.40.txt">237</A></TD><TD><B><A HREF="codes/n18_w6_d0.40.txt">239</A></B></TD><TD><B><A HREF="codes/n18_w7_d0.40.txt">180-195</A></B></TD><TD><B><A HREF="codes/n18_w8_d0.40.txt">101-139</A></B></TD><TD><B><A HREF="codes/n18_w9_d0.40.txt">46-57</A></B></TD><TD></TD></TR>
+<TR><TD>19</TD><TD><A HREF="codes/n19_w3_d0.40.txt">30</A></TD><TD><A HREF="codes/n19_w4_d0.40.txt">120</A></TD><TD><A HREF="codes/n19_w5_d0.40.txt">324</A></TD><TD><A HREF="codes/n19_w6_d0.40.txt">735</A></TD><TD><B><A HREF="codes/n19_w7_d0.40.txt">389-408</A></B></TD><TD><B><A HREF="codes/n19_w8_d0.40.txt">146-1962</A></B></TD><TD><B><A HREF="codes/n19_w9_d0.40.txt">65-2338</A></B></TD><TD></TD></TR>
+<TR><TD>20</TD><TD><A HREF="codes/n20_w3_d0.40.txt">33</A></TD><TD><A HREF="codes/n20_w4_d0.40.txt">143</A></TD><TD><A HREF="codes/n20_w5_d0.40.txt">384</A></TD><TD><B><A HREF="codes/n20_w6_d0.40.txt">667</A></B></TD><TD><B><A HREF="codes/n20_w7_d0.40.txt">479-501</A></B></TD><TD><B><A HREF="codes/n20_w8_d0.40.txt">332-695</A></B></TD><TD>&mdash;</TD><TD><B><A HREF="codes/n20_w10_d0.40.txt">72-2377</A></B></TD></TR>
+</TABLE>
+
+<H3>4. Table of &delta;(n,w): separation of the full alphabet</H3>
+<P>The largest &theta; for which all c(n,w) classes form a code. Large &delta; = every phase-blind-distinguishable word is also well separated.</P>
+<TABLE BORDER="1"><TR><TD>n \ w</TD><TD> 3 </TD><TD> 4 </TD><TD> 5 </TD><TD> 6 </TD><TD> 7 </TD><TD> 8 </TD><TD> 9 </TD><TD> 10 </TD></TR>
+<TR><TD>6</TD><TD>0.667</TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD></TR>
+<TR><TD>7</TD><TD>0.678</TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD></TR>
+<TR><TD>8</TD><TD>0.629</TD><TD>0.354</TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD></TR>
+<TR><TD>9</TD><TD>0.758</TD><TD>0.426</TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD></TR>
+<TR><TD>10</TD><TD>0.994</TD><TD>0.530</TD><TD>0.358</TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD></TR>
+<TR><TD>11</TD><TD>1.028</TD><TD>0.578</TD><TD>0.370</TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD></TR>
+<TR><TD>12</TD><TD>0.770</TD><TD>0.433</TD><TD>0.277</TD><TD>0.192</TD><TD></TD><TD></TD><TD></TD><TD></TD></TR>
+<TR><TD>13</TD><TD>1.199</TD><TD>0.674</TD><TD>0.432</TD><TD>0.300</TD><TD></TD><TD></TD><TD></TD><TD></TD></TR>
+<TR><TD>14</TD><TD>1.355</TD><TD>0.687</TD><TD>0.488</TD><TD>0.305</TD><TD>0.249</TD><TD></TD><TD></TD><TD></TD></TR>
+<TR><TD>15</TD><TD>1.185</TD><TD>0.666</TD><TD>0.426</TD><TD>0.296</TD><TD>0.218</TD><TD></TD><TD></TD><TD></TD></TR>
+<TR><TD>16</TD><TD>1.161</TD><TD>0.653</TD><TD>0.418</TD><TD>0.290</TD><TD>0.213</TD><TD>0.163</TD><TD></TD><TD></TD></TR>
+<TR><TD>17</TD><TD>1.558</TD><TD>0.876</TD><TD>0.561</TD><TD>0.389</TD><TD>0.286</TD><TD>0.219</TD><TD></TD><TD></TD></TR>
+<TR><TD>18</TD><TD>1.516</TD><TD>0.845</TD><TD>0.546</TD><TD>0.375</TD><TD>0.278</TD><TD>0.211</TD><TD>0.168</TD><TD></TD></TR>
+<TR><TD>19</TD><TD>1.734</TD><TD>0.976</TD><TD>0.624</TD><TD>0.434</TD><TD>0.319</TD><TD>0.244</TD><TD>0.193</TD><TD></TD></TR>
+<TR><TD>20</TD><TD>1.368</TD><TD>0.769</TD><TD>0.492</TD><TD>0.342</TD><TD>0.251</TD><TD>0.192</TD><TD></TD><TD>0.123</TD></TR>
+</TABLE>
+
+<H3>5. Matrices</H3>
+<P>The 13 shifts of the (13,4,1) difference set {0,1,3,9} (a circulant; optimal for the Hamming problem A(13,6,4) = 13) have ONE signature: S = 1 for these 13 words.</P>
+<PRE>1101000001000
+0110100000100
+0011010000010
+0001101000001
+1000110100000
+0100011010000
+0010001101000
+0001000110100
+0000100011010
+0000010001101
+1000001000110
+0100000100011
+1010000010001</PRE>
+<P>A spectral code for n=12, w=6, &theta; = 0.20 (the proven maximum, 29 words):</P>
+<PRE>111111000000
+111110100000
+111110010000
+111110001000
+111101010000
+111101000100
+111101000010
+111100110000
+111100101000
+111100100100
+111100011000
+111011001000
+111011000100
+111010101000
+111010100010
+111010011000
+111010010100
+111010010010
+111010001100
+111001100100
+111001010100
+111000111000
+110110100100
+110110010100
+110101010010
+110101001010
+110100110100
+110011001100
+101010101010</PRE>
+
+<H3>6. Use: an intensity-only receiver in additive noise</H3>
+<P>Each position of the 0/1 word is observed with Gaussian noise sigma; the receiver computes |FFT|<sup>2</sup> and decodes by the nearest stored signature (3000 trials per cell).</P>
+<P>n=16, w=6, K=12 words (chance error 0.917; 246 signatures exist). <B>spectral-opt</B>: the K classes found by randomised farthest-point search with the largest minimum spectral distance (0.940). <B>distinct</B>: K random classes (min distance 0.426). <B>Hamming</B>: greedy codes of maximal Hamming distance, 5 random draws (mean, [min-max] of error); 0 of 5 draws contain two words with identical signatures. <B>cyclic</B>: K shifts of one word.</P>
+<TABLE BORDER="1"><TR><TD>noise sigma</TD><TD>spectral-opt</TD><TD>distinct</TD><TD>Hamming mean [min-max]</TD><TD>cyclic family</TD></TR>
+<TR><TD>0.05</TD><TD><B>0.000</B></TD><TD>0.000</TD><TD>0.000 [0.000-0.000]</TD><TD>0.919</TD></TR>
+<TR><TD>0.1</TD><TD><B>0.000</B></TD><TD>0.000</TD><TD>0.002 [0.001-0.005]</TD><TD>0.914</TD></TR>
+<TR><TD>0.15</TD><TD><B>0.000</B></TD><TD>0.010</TD><TD>0.034 [0.025-0.039]</TD><TD>0.917</TD></TR>
+<TR><TD>0.2</TD><TD><B>0.009</B></TD><TD>0.080</TD><TD>0.117 [0.101-0.149]</TD><TD>0.912</TD></TR>
+<TR><TD>0.3</TD><TD><B>0.111</B></TD><TD>0.299</TD><TD>0.361 [0.345-0.396]</TD><TD>0.920</TD></TR>
+<TR><TD>0.5</TD><TD><B>0.474</B></TD><TD>0.626</TD><TD>0.666 [0.642-0.695]</TD><TD>0.924</TD></TR>
+</TABLE>
+<P>n=13, w=4, K=13 words (chance error 0.923; 34 signatures exist). <B>spectral-opt</B>: the K classes found by randomised farthest-point search with the largest minimum spectral distance (0.888). <B>distinct</B>: K random classes (min distance 0.674). <B>Hamming</B>: greedy codes of maximal Hamming distance, 5 random draws (mean, [min-max] of error); 5 of 5 draws contain two words with identical signatures. <B>cyclic</B>: K shifts of one word.</P>
+<TABLE BORDER="1"><TR><TD>noise sigma</TD><TD>spectral-opt</TD><TD>distinct</TD><TD>Hamming mean [min-max]</TD><TD>cyclic family</TD></TR>
+<TR><TD>0.05</TD><TD><B>0.000</B></TD><TD>0.000</TD><TD>0.205 [0.073-0.310]</TD><TD>0.929</TD></TR>
+<TR><TD>0.1</TD><TD><B>0.000</B></TD><TD>0.004</TD><TD>0.196 [0.083-0.301]</TD><TD>0.926</TD></TR>
+<TR><TD>0.15</TD><TD><B>0.010</B></TD><TD>0.064</TD><TD>0.237 [0.109-0.336]</TD><TD>0.928</TD></TR>
+<TR><TD>0.2</TD><TD><B>0.055</B></TD><TD>0.181</TD><TD>0.324 [0.193-0.417]</TD><TD>0.926</TD></TR>
+<TR><TD>0.3</TD><TD><B>0.279</B></TD><TD>0.445</TD><TD>0.524 [0.433-0.578]</TD><TD>0.924</TD></TR>
+<TR><TD>0.5</TD><TD><B>0.648</B></TD><TD>0.725</TD><TD>0.745 [0.698-0.765]</TD><TD>0.918</TD></TR>
+</TABLE>
+<P>n=18, w=6, K=16 words (chance error 0.938; 493 signatures exist). <B>spectral-opt</B>: the K classes found by randomised farthest-point search with the largest minimum spectral distance (1.117). <B>distinct</B>: K random classes (min distance 0.379). <B>Hamming</B>: greedy codes of maximal Hamming distance, 5 random draws (mean, [min-max] of error); 0 of 5 draws contain two words with identical signatures. <B>cyclic</B>: K shifts of one word.</P>
+<TABLE BORDER="1"><TR><TD>noise sigma</TD><TD>spectral-opt</TD><TD>distinct</TD><TD>Hamming mean [min-max]</TD><TD>cyclic family</TD></TR>
+<TR><TD>0.05</TD><TD><B>0.000</B></TD><TD>0.000</TD><TD>0.000 [0.000-0.000]</TD><TD>0.932</TD></TR>
+<TR><TD>0.1</TD><TD><B>0.000</B></TD><TD>0.002</TD><TD>0.001 [0.000-0.003]</TD><TD>0.940</TD></TR>
+<TR><TD>0.15</TD><TD><B>0.000</B></TD><TD>0.019</TD><TD>0.030 [0.011-0.051]</TD><TD>0.937</TD></TR>
+<TR><TD>0.2</TD><TD><B>0.006</B></TD><TD>0.108</TD><TD>0.113 [0.073-0.149]</TD><TD>0.941</TD></TR>
+<TR><TD>0.3</TD><TD><B>0.105</B></TD><TD>0.358</TD><TD>0.365 [0.301-0.409]</TD><TD>0.942</TD></TR>
+<TR><TD>0.5</TD><TD><B>0.475</B></TD><TD>0.712</TD><TD>0.699 [0.662-0.719]</TD><TD>0.942</TD></TR>
+</TABLE>
+<P>n=14, w=5, K=20 words (chance error 0.950; 73 signatures exist). <B>spectral-opt</B>: the K classes found by randomised farthest-point search with the largest minimum spectral distance (0.623). <B>distinct</B>: K random classes (min distance 0.488). <B>Hamming</B>: greedy codes of maximal Hamming distance, 5 random draws (mean, [min-max] of error); 3 of 5 draws contain two words with identical signatures. <B>cyclic</B>: K shifts of one word.</P>
+<TABLE BORDER="1"><TR><TD>noise sigma</TD><TD>spectral-opt</TD><TD>distinct</TD><TD>Hamming mean [min-max]</TD><TD>cyclic family</TD></TR>
+<TR><TD>0.05</TD><TD><B>0.000</B></TD><TD>0.000</TD><TD>0.088 [0.000-0.149]</TD><TD>0.927</TD></TR>
+<TR><TD>0.1</TD><TD><B>0.000</B></TD><TD>0.002</TD><TD>0.097 [0.003-0.165]</TD><TD>0.932</TD></TR>
+<TR><TD>0.15</TD><TD><B>0.017</B></TD><TD>0.038</TD><TD>0.143 [0.049-0.227]</TD><TD>0.926</TD></TR>
+<TR><TD>0.2</TD><TD><B>0.101</B></TD><TD>0.134</TD><TD>0.264 [0.159-0.348]</TD><TD>0.920</TD></TR>
+<TR><TD>0.3</TD><TD><B>0.356</B></TD><TD>0.395</TD><TD>0.506 [0.449-0.557]</TD><TD>0.928</TD></TR>
+<TR><TD>0.5</TD><TD><B>0.699</B></TD><TD>0.744</TD><TD>0.789 [0.775-0.809]</TD><TD>0.926</TD></TR>
+</TABLE>
+
+<H3>7. Link to hyperdimensional computing (HDC) and optical orthogonal codes</H3>
+<P>In HDC an item is bound to a role by a cyclic shift (permutation) or circular convolution, items are bundled by superposition, and the readout correlates the bundle against
+a codebook (a resonator network iterates this). With sparse binary constant-weight vectors the bundle is the integer sum of shifted codewords and the readout scores are
+the circular cross-correlations with the codebook: the same interference as optical CDMA. Three consequences, one of them measured below.</P>
+<UL>
+<LI>Codebooks whose shifted words pairwise overlap in at most one position (optical orthogonal codes, correlation &le; 1) have a counting guarantee: a true item scores at least w, a false
+ hypothesis at most T, so T &le; w-1 bundled items are read out exactly. The size of such a codebook is limited by the Johnson-type bound floor((n-1)/(w(w-1))).</LI>
+<LI>Rosenblatt-Seymour (A = U+V against B = U-V) says binding with V and with the reversal of V give words with the same power spectrum: a magnitude-only readout cannot
+ distinguish them. This is the homometric ambiguity of section 1 seen as an unbinding ambiguity.</LI>
+<LI>Difference sets are the binary analogue of the unit-magnitude (FHRR) role vectors: perfect autocorrelation means the shifts of one word are quasi-orthogonal, which is ideal for roles
+ but, by section 6, worthless as an alphabet for an intensity-only receiver (all shifts share one signature). Roles want flat spectra; alphabets for phase-blind readout want spread-out spectra.</LI>
+</UL>
+<P>Measured (n = 127, w = 4, 10 words, bundle of T random (word, shift) pairs, readout = top-T correlation peaks, 400 trials per cell; fraction of items recovered):</P>
+<TABLE BORDER="1"><TR><TD>items bundled T</TD><TD>OOC codebook (corr &le; 1)</TD><TD>random weight-4 words</TD><TD>Hamming code</TD></TR>
+<TR><TD>2</TD><TD><B>1.000</B></TD><TD>0.991</TD><TD>1.000</TD></TR>
+<TR><TD>3</TD><TD><B>1.000</B></TD><TD>0.958</TD><TD>0.969</TD></TR>
+<TR><TD>4</TD><TD><B>0.981</B></TD><TD>0.891</TD><TD>0.893</TD></TR>
+<TR><TD>6</TD><TD><B>0.821</B></TD><TD>0.714</TD><TD>0.711</TD></TR>
+<TR><TD>8</TD><TD><B>0.699</B></TD><TD>0.617</TD><TD>0.618</TD></TR>
+<TR><TD>12</TD><TD><B>0.577</B></TD><TD>0.499</TD><TD>0.500</TD></TR>
+<TR><TD>16</TD><TD><B>0.516</B></TD><TD>0.434</TD><TD>0.439</TD></TR>
+<TR><TD>24</TD><TD><B>0.432</B></TD><TD>0.370</TD><TD>0.375</TD></TR>
+</TABLE>
+<P>Counted: the OOC codebook has maximum auto/cross-correlation 1, the random and Hamming codebooks 3 and 2. Guarantee holds for T &le; 3 (exact, 1.000).</P>
+
+<H3>8. Notes</H3>
+<UL>
+<LI>All sizes in sections 3 are lower bounds by explicit codes (files) and, where marked exact, upper bounds by the integer program. One cell may be open (lb-ub).</LI>
+<LI>c(n,w) agrees with the number of bracelets for w &le; 3 in every cell computed (n &le; 30) and falls below it first for w = 4 (n = 12: the pair {0,1,4,6}, {0,1,3,7}).</LI>
+<LI>Not literature-checked beyond the items in <A HREF="related_work.md">related_work.md</A>. Nothing here is submitted anywhere.</LI>
+</UL>
+</BODY>
+</HTML>
