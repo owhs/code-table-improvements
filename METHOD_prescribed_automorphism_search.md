@@ -43,10 +43,14 @@ These are practical differences, not theoretical advances.
 3. **Structure read off the results.** The 5-ary records are unions of cosets of a linear code of the doubled form (a | a):
    18750 = 30 cosets of a [10,4] code and 4500 = 36 cosets of a [9,3] code. The published codes for these cells have the same structure:
    Laaksonen's 17500 is 28 cosets of a 625-word code of the form (a | a) (checked on the code file from his page), and 4375 is 35 cosets.
+4. **Repacking published records.** A_3(15,5) >= 7929 and A_5(9,5) >= 893 start from Laaksonen and Ostergard's codes (7812 and 857) and
+   use standard large-neighbourhood search: remove the words or orbits near a random codeword and refill the hole optimally, keeping the
+   result if it is no smaller. The gain came from refilling larger holes than the original searches did. 7929 and 893 are where these
+   searches stopped, not proven optima.
 
 ## Limits
 - The method is only as good as its groups. In 15-minute single-core runs it did not reach several published values,
-  for example A_5(9,5) (625 against 857) and A_5(9,6) (125 against 157).
+  for example A_5(9,5) (625 against 857; the 893 came from repacking their code, item 4) and A_5(9,6) (125 against 157).
 - For A_5(7,4) direct search reached 254; the 257 of Laaksonen and Ostergard (2019) follows from A_5(8,5) >= 257 by
   deleting a coordinate.
 - Literature after the table sources was searched by web search only.
