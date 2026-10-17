@@ -14,6 +14,7 @@ Each result folder has the codes as plain text and a checker that uses only the 
 | `ternary_mixed/` | 27 codes (25 found by search, 2 derived from them), for example A_3(15,5) >= 7929, A_3(14,8) >= 123, N(5,8,5) >= 513, N(10,4,4) >= 1104 | 7812, 108, 486, 1050 |
 | `quinary/A5_10_4_18750/` | A_5(10,4) >= 18750 | 17500 |
 | `quinary/A5_9_4_4500/` | A_5(9,4) >= 4500 | 4375 |
+| `quinary/A5_7_3_1601/` | A_5(7,3) >= 1601 | 1597 |
 | `quinary/A5_9_5_893/` | A_5(9,5) >= 893, by repacking Laaksonen and Ostergard's 857 code (their 2019 value); checkers need numpy | 725 |
 | `quinary/reproductions_LO2019/` | independent codes for A_5(8,5) >= 257 and A_5(7,5) >= 57, and A_5(7,4) >= 257 by deleting a coordinate of the first; these values are due to Laaksonen and Ostergard (2019, Table 3) and are not yet on the 5-ary page | 165, 53, 250 |
 | `derived_from_LO2019/` | five mixed binary/ternary bounds that follow from Laaksonen and Ostergard's ternary codes, for example N(1,13,4) >= 18711; not yet on the mixed page | 16767 |
